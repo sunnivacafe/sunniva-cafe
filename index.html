@@ -143,7 +143,14 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .metric .m-val{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gold);}
 
 .breakdown-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:0.5px solid var(--line);font-size:14px;}
-.breakdown-row .b-qty{color:var(--cream-dim);}
+.breakdown-row .b-qty{color:var(--cream-dim);display:flex;align-items:center;gap:6px;}
+.breakdown-row-wrap{border-bottom:0.5px solid var(--line);}
+.breakdown-row-wrap .breakdown-row{border-bottom:none;padding-bottom:4px;}
+.breakdown-cost-detail{padding:0 0 10px;margin-top:0;}
+.b-info-toggle{background:var(--surface-2);border:0.5px solid var(--line);color:var(--gold-dark);
+  border-radius:50%;width:20px;height:20px;line-height:1;font-size:12px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;padding:0;}
+.b-info-toggle.open{background:var(--gold);color:#2A1608;}
 
 .profit-row{padding:10px 0;border-bottom:0.5px solid var(--line);font-size:13.5px;}
 .profit-row .pr-top{display:flex;justify-content:space-between;margin-bottom:3px;}
@@ -156,11 +163,40 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .order-card .oc-top{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:4px;}
 .order-card .oc-items{font-size:13px;color:var(--cream-dim);line-height:1.5;}
 .order-card .oc-time{font-size:11.5px;color:var(--cream-dim);}
+.order-card .oc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.order-card button.cancel-order-btn{background:none;border:0.5px solid var(--berry);color:var(--berry);border-radius:8px;
+  padding:6px 10px;font-size:12px;cursor:pointer;font-family:var(--font-body);}
+.order-card button.cancel-order-btn:disabled{opacity:0.5;cursor:not-allowed;}
 
 .expense-row{background:var(--surface);border-radius:10px;padding:11px 14px;margin-bottom:8px;
   display:flex;justify-content:space-between;align-items:center;font-size:13.5px;}
 .expense-row .ex-desc{flex:1;}
 .expense-row .ex-amt{color:var(--berry);font-family:var(--font-display);font-weight:600;margin-right:10px;}
+
+.ing-card{background:var(--surface);border:0.5px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.ing-card .ing-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;}
+.ing-card .ing-top input.ing-name{flex:1;font-family:var(--font-display);font-weight:600;font-size:14px;}
+.ing-card .ing-row{display:flex;align-items:center;flex-wrap:wrap;gap:5px;font-size:12.5px;color:var(--cream-dim);margin-bottom:6px;}
+.ing-card .ing-row input{width:64px;background:var(--surface-2);border:0.5px solid var(--line);border-radius:7px;
+  padding:6px 7px;color:var(--cream);font-family:var(--font-body);font-size:12.5px;text-align:center;}
+.ing-card .ing-row input.ing-unit-input{width:56px;}
+.ing-card .ing-cost-line{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;
+  padding-top:6px;border-top:0.5px dashed var(--line);}
+.ing-card .ing-unit-cost{font-family:var(--font-display);font-weight:700;color:var(--gold);}
+.ing-card .ing-stock-low{color:var(--berry);}
+
+.ingredient-recipe-block{background:var(--surface-2);border-radius:10px;padding:10px 12px;}
+.ing-recipe-lines{display:flex;flex-direction:column;gap:5px;margin:6px 0;}
+.ing-recipe-line{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;
+  background:var(--surface);border-radius:7px;padding:6px 9px;}
+.ing-recipe-line button{background:none;border:none;color:var(--berry);cursor:pointer;font-size:15px;padding:0 2px;line-height:1;}
+.ing-recipe-add-row{display:flex;gap:6px;margin-top:4px;}
+.ing-recipe-add-row select{flex:1.4;}
+.ing-recipe-add-row input{flex:1;}
+.ing-cost-summary{margin-top:8px;font-size:12.5px;color:var(--cream-dim);line-height:1.6;}
+.ing-cost-summary b{color:var(--gold);}
+.ing-cost-summary .cups-line{color:var(--green);}
+.ing-cost-summary .cups-line.low{color:var(--berry);}
 
 .empty-state{text-align:center;color:var(--cream-dim);padding:30px 0;font-size:14px;}
 
@@ -233,6 +269,10 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .member-row .mr-pin-val{font-family:var(--font-display);letter-spacing:2px;color:var(--cream);}
 .member-row .mr-pin-toggle{background:var(--surface-2);border:0.5px solid var(--line);color:var(--cream);border-radius:8px;
   padding:5px 9px;font-size:11.5px;cursor:pointer;font-family:var(--font-body);}
+.member-row .mr-history-toggle{width:100%;margin-top:8px;background:none;border:0.5px dashed var(--line);color:var(--cream-dim);
+  border-radius:8px;padding:8px;font-size:12px;cursor:pointer;font-family:var(--font-body);}
+.member-row .mr-history-list{margin-top:8px;}
+.member-row .mr-history-list .order-card{background:var(--surface-2);}
 .member-search{width:100%;background:var(--surface);border:0.5px solid var(--line);border-radius:10px;padding:10px 12px;
   color:var(--cream);font-family:var(--font-body);font-size:13.5px;margin-bottom:14px;}
 .reward-row{background:var(--surface);border:0.5px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px;}
@@ -348,6 +388,25 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 
       <h2 class="section-title">กำไรต่อเมนู</h2>
       <div id="profit-breakdown"></div>
+
+      <h2 class="section-title" style="margin-top:24px;">วัตถุดิบ &amp; ต้นทุนต่อหน่วย</h2>
+      <p class="card-note">บันทึกวัตถุดิบที่ซื้อมา เช่น ซื้อแก้ว 50 ใบ 159 บาท หรือ นม 2000 มล. 97 บาท ระบบจะคำนวณต้นทุนต่อหน่วยให้อัตโนมัติ แล้วนำไปผูกกับสูตรของแต่ละเมนูในหน้า "จัดการเมนู" เพื่อคำนวณต้นทุนต่อแก้วอย่างละเอียด และคำนวณสต็อกคงเหลือว่าชงขายได้อีกกี่แก้ว</p>
+      <div id="ingredient-list"></div>
+      <div class="promo-card" style="margin-top:12px;">
+        <p class="promo-title">เพิ่มวัตถุดิบใหม่</p>
+        <div class="promo-row">
+          <input type="text" id="ing-name" placeholder="ชื่อวัตถุดิบ เช่น แก้ว, นม, ไซรัป" style="flex:2;">
+          <input type="text" id="ing-unit" placeholder="หน่วย เช่น ใบ, ml, g" style="flex:1;">
+        </div>
+        <div class="promo-row">
+          <input type="number" id="ing-pkg-qty" placeholder="ซื้อจำนวน เช่น 50">
+          <input type="number" id="ing-pkg-price" placeholder="ราคาที่ซื้อ (บาท) เช่น 159">
+        </div>
+        <div class="promo-row">
+          <input type="number" id="ing-stock" placeholder="สต็อกคงเหลือตอนนี้ (เว้นว่าง = เท่ากับจำนวนที่ซื้อ)">
+        </div>
+        <button class="promo-add" id="add-ingredient-btn">+ บันทึกวัตถุดิบ</button>
+      </div>
 
       <h2 class="section-title" style="margin-top:24px;">รายจ่ายอื่นๆ</h2>
       <div id="expense-list"></div>
@@ -520,16 +579,16 @@ const DEFAULT_MENU = {
     {id:'cat_drink', name:'เมนูน้ำชา กาแฟ', allowCombo:false, comboPrice:0}
   ],
   items: [
-    {id:'c1', categoryId:'cat_coffle', name:'ธรรมดา (น้ำตาลคาราเมล + ไอซิ่ง)', price:25, cost:0, description:'', quota:null, recipe:{}},
-    {id:'c2', categoryId:'cat_coffle', name:'วิปครีม + สตรอว์เบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}},
-    {id:'c3', categoryId:'cat_coffle', name:'วิปครีม + บลูเบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}},
-    {id:'c4', categoryId:'cat_coffle', name:'สเต็กไก่ + ชีส', price:39, cost:0, description:'', quota:null, recipe:{}},
-    {id:'d1', categoryId:'cat_drink', name:'ลาเต้เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}},
-    {id:'d2', categoryId:'cat_drink', name:'คาปูชิโน่เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}},
-    {id:'d3', categoryId:'cat_drink', name:'ชาไทย', price:35, cost:0, description:'', quota:null, recipe:{}},
-    {id:'d4', categoryId:'cat_drink', name:'ชาเขียว', price:35, cost:0, description:'', quota:null, recipe:{}},
-    {id:'d5', categoryId:'cat_drink', name:'สตรอว์เบอร์รี่นมสด', price:40, cost:0, description:'', quota:null, recipe:{}},
-    {id:'d6', categoryId:'cat_drink', name:'นมสดโอรีโอ้', price:40, cost:0, description:'', quota:null, recipe:{}}
+    {id:'c1', categoryId:'cat_coffle', name:'ธรรมดา (น้ำตาลคาราเมล + ไอซิ่ง)', price:25, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'c2', categoryId:'cat_coffle', name:'วิปครีม + สตรอว์เบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'c3', categoryId:'cat_coffle', name:'วิปครีม + บลูเบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'c4', categoryId:'cat_coffle', name:'สเต็กไก่ + ชีส', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'d1', categoryId:'cat_drink', name:'ลาเต้เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[]},
+    {id:'d2', categoryId:'cat_drink', name:'คาปูชิโน่เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[]},
+    {id:'d3', categoryId:'cat_drink', name:'ชาไทย', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'d4', categoryId:'cat_drink', name:'ชาเขียว', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'d5', categoryId:'cat_drink', name:'สตรอว์เบอร์รี่นมสด', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
+    {id:'d6', categoryId:'cat_drink', name:'นมสดโอรีโอ้', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]}
   ]
 };
 
@@ -565,6 +624,103 @@ async function loadRewards(){
 }
 async function saveRewards(){
   try{ await window.storage.set('rewards-data', JSON.stringify(rewardsData), true); }catch(e){}
+}
+
+// ===== วัตถุดิบ & สต็อก =====
+let ingredientsData = []; // [{id,name,unit,packageQty,packagePrice,stockQty,createdAt}]
+
+function ingredientStorageKey(id){ return 'ingredients:' + id; }
+
+async function loadIngredients(){
+  try{
+    const list = await window.storage.list('ingredients:', true);
+    if(!list || !list.keys){ ingredientsData = []; return; }
+    const results = await Promise.all(list.keys.map(k => window.storage.get(k, true).catch(() => null)));
+    ingredientsData = results.filter(Boolean)
+      .map(r => { try{ return JSON.parse(r.value); }catch(e){ return null; } })
+      .filter(Boolean)
+      .sort((a,b) => (a.createdAt||0) - (b.createdAt||0));
+  }catch(e){ ingredientsData = []; }
+}
+async function saveIngredient(ing){
+  try{ await window.storage.set(ingredientStorageKey(ing.id), JSON.stringify(ing), true); }catch(e){}
+}
+async function deleteIngredientRecord(id){
+  try{ await window.storage.delete(ingredientStorageKey(id), true); }catch(e){}
+}
+function ingredientById(id){ return ingredientsData.find(i => i.id === id); }
+function ingredientUnitCost(ing){
+  if(!ing || !ing.packageQty) return 0;
+  return (ing.packagePrice || 0) / ing.packageQty;
+}
+function fmtBahtPrecise(n){
+  return '฿' + (Math.round((n||0) * 100) / 100).toLocaleString('th-TH', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+// ต้นทุนต่อแก้วของเมนู คำนวณจากสูตรวัตถุดิบ (คืนค่า null ถ้าเมนูนี้ยังไม่ได้ตั้งสูตรวัตถุดิบ)
+function itemIngredientCost(item){
+  if(!item || !Array.isArray(item.ingredientRecipe) || item.ingredientRecipe.length === 0) return null;
+  return item.ingredientRecipe.reduce((sum, line) => {
+    const ing = ingredientById(line.ingredientId);
+    if(!ing) return sum;
+    return sum + ingredientUnitCost(ing) * (Number(line.qty) || 0);
+  }, 0);
+}
+
+// จำนวนแก้วที่ยังชงได้จากสต็อกปัจจุบัน ตามวัตถุดิบที่ใช้แล้วเหลือน้อยที่สุด (คืนค่า null ถ้ายังไม่มีสูตร)
+function itemMakeableCups(item){
+  if(!item || !Array.isArray(item.ingredientRecipe) || item.ingredientRecipe.length === 0) return null;
+  let min = Infinity, limiting = null;
+  item.ingredientRecipe.forEach(line => {
+    const ing = ingredientById(line.ingredientId);
+    const qty = Number(line.qty) || 0;
+    if(!ing || qty <= 0) return;
+    const possible = Math.floor((ing.stockQty || 0) / qty);
+    if(possible < min){ min = possible; limiting = ing.name; }
+  });
+  if(min === Infinity) return null;
+  return {count: Math.max(0, min), limiting};
+}
+
+// อัปเดต item.cost ของทุกเมนูที่มีสูตรวัตถุดิบให้เท่ากับต้นทุนที่คำนวณอัตโนมัติ
+function syncComputedCosts(){
+  let changed = false;
+  (menuData.items || []).forEach(item => {
+    const auto = itemIngredientCost(item);
+    if(auto != null){
+      const rounded = Math.round(auto * 100) / 100;
+      if(item.cost !== rounded){ item.cost = rounded; changed = true; }
+    }
+  });
+  return changed;
+}
+
+// รวมปริมาณวัตถุดิบที่ต้องตัดสต็อกจากตะกร้าออเดอร์ 1 ออเดอร์
+function computeStockDeductions(cartLines){
+  const map = {};
+  (cartLines || []).forEach(l => {
+    const item = itemsById[l.id];
+    if(!item || !Array.isArray(item.ingredientRecipe)) return;
+    item.ingredientRecipe.forEach(line => {
+      const qty = Number(line.qty) || 0;
+      if(!line.ingredientId || qty <= 0) return;
+      map[line.ingredientId] = (map[line.ingredientId] || 0) + qty * l.qty;
+    });
+  });
+  return Object.entries(map).map(([ingredientId, qty]) => ({ingredientId, qty}));
+}
+
+// ปรับสต็อกวัตถุดิบตามรายการที่คำนวณไว้ (sign: -1 ตัดสต็อกตอนสั่งซื้อ, +1 คืนสต็อกตอนยกเลิกออเดอร์)
+async function applyStockDeductions(deductions, sign){
+  if(!deductions || deductions.length === 0) return;
+  const toSave = [];
+  deductions.forEach(d => {
+    const ing = ingredientById(d.ingredientId);
+    if(!ing) return;
+    ing.stockQty = Math.max(0, (ing.stockQty || 0) + sign * d.qty);
+    toSave.push(ing);
+  });
+  await Promise.all(toSave.map(saveIngredient));
 }
 
 function memberStorageKey(phone){ return 'member:' + phone; }
@@ -718,6 +874,36 @@ function newId(prefix){
   return prefix + '_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
 }
 
+// window.confirm() ไม่ทำงานในหน้าต่างนี้ (ถูกบล็อกโดยเบราว์เซอร์/แซนด์บ็อกซ์) จึงใช้การ "กดยืนยันซ้ำ" แทน
+// กดครั้งแรก = ปุ่มเปลี่ยนเป็นสีแดง+ข้อความยืนยัน, กดซ้ำภายในไม่กี่วินาที = ทำงานจริง
+function inlineConfirm(btn, confirmLabel, onConfirm){
+  if(!btn) return;
+  const originalLabel = btn.textContent;
+  const originalBg = btn.style.background;
+  const originalColor = btn.style.color;
+  let armed = false;
+  let resetTimer = null;
+  const reset = () => {
+    armed = false;
+    if(resetTimer) clearTimeout(resetTimer);
+    btn.textContent = originalLabel;
+    btn.style.background = originalBg;
+    btn.style.color = originalColor;
+  };
+  btn.onclick = async () => {
+    if(!armed){
+      armed = true;
+      btn.textContent = confirmLabel;
+      btn.style.background = 'var(--berry)';
+      btn.style.color = '#FBEEE0';
+      resetTimer = setTimeout(reset, 3000);
+      return;
+    }
+    reset();
+    await onConfirm();
+  };
+}
+
 async function loadMenu(){
   try{
     const res = await window.storage.get('menu-data', true);
@@ -735,6 +921,7 @@ async function loadMenu(){
             i.recipe[menuData.sweetnessLevels[0].id] = oldRecipeText;
           }
         }
+        if(!Array.isArray(i.ingredientRecipe)) i.ingredientRecipe = [];
       });
     } else {
       await saveMenu();
@@ -743,6 +930,7 @@ async function loadMenu(){
     await saveMenu();
   }
   rebuildItemsById();
+  if(syncComputedCosts()) await saveMenu();
 }
 
 async function saveMenu(){
@@ -1151,6 +1339,7 @@ async function submitOrder(){
   const pointsEarned = memberRecord ? cartPointsTotal(cart) : 0;
   const pointsRedeemed = reward ? reward.pointsCost : 0;
 
+  const stockDeductions = computeStockDeductions(cart);
   const order = {
     name, contact, note,
     items: cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, paid:false})),
@@ -1161,13 +1350,16 @@ async function submitOrder(){
     ts: Date.now(),
     memberPhone: memberRecord ? memberRecord.phone : null,
     rewardApplied: reward ? {id:reward.id, name:reward.name} : null,
-    pointsEarned, pointsRedeemed
+    pointsEarned, pointsRedeemed,
+    stockDeductions
   };
   const key = 'orders:' + todayStr() + ':' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
 
   try{
     const result = await window.storage.set(key, JSON.stringify(order), true);
     if(!result){ throw new Error('save failed'); }
+
+    await applyStockDeductions(stockDeductions, -1);
 
     if(memberRecord){
       memberRecord.points = memberRecord.points - pointsRedeemed + pointsEarned;
@@ -1375,7 +1567,8 @@ function renderMemberProfileSheet(returnToCart){
     <p class="card-note">สั่งซื้อทุก ${rewardsData.pointsPerBaht || 1} บาท รับ 1 แต้ม • สั่งซื้อครบ ${memberRecord.orderCount||0} ครั้งแล้ว</p>
     ${rewards.length ? `<h2 class="section-title" style="margin-top:16px;">โปรโมชั่นที่แลกได้ตอนนี้</h2>
       ${rewards.map(r => `<div class="breakdown-row"><span>${r.name}</span><span class="b-qty">${r.pointsCost} แต้ม</span></div>`).join('')}` : ''}
-    <button class="submit-btn" id="profile-change-pin" style="margin-top:16px;background:var(--surface-2);color:var(--cream);">เปลี่ยนรหัสผ่าน</button>
+    <button class="submit-btn" id="profile-order-history" style="margin-top:16px;background:var(--surface-2);color:var(--cream);">ประวัติการสั่งซื้อ</button>
+    <button class="submit-btn" id="profile-change-pin" style="margin-top:8px;background:var(--surface-2);color:var(--cream);">เปลี่ยนรหัสผ่าน</button>
     <button class="submit-btn" id="profile-close" style="margin-top:8px;">ปิดหน้าต่าง</button>
   `;
   document.getElementById('overlay').classList.remove('hidden');
@@ -1383,12 +1576,52 @@ function renderMemberProfileSheet(returnToCart){
     memberLogout();
     if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
   };
+  document.getElementById('profile-order-history').onclick = () => {
+    openOrderHistorySheet(returnToCart);
+  };
   document.getElementById('profile-change-pin').onclick = () => {
     openChangePinForm(returnToCart);
   };
   document.getElementById('profile-close').onclick = () => {
     if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
   };
+}
+
+async function fetchMemberOrders(phone){
+  const all = await fetchAllOrders();
+  return all.filter(o => o.memberPhone === phone).sort((a,b) => (b.ts||0) - (a.ts||0));
+}
+
+function customerOrderItemLineHtml(it){
+  const sweetPart = it.sweet ? ' (' + it.sweet + ')' : '';
+  return `${it.name}${sweetPart} x${it.qty}`;
+}
+
+async function openOrderHistorySheet(returnToCart){
+  const body = document.getElementById('sheet-body');
+  body.innerHTML = `
+    <h3>ประวัติการสั่งซื้อ</h3>
+    <div id="order-history-list"><div class="empty-cart">กำลังโหลด...</div></div>
+    <button class="member-skip" id="oh-back">&larr; กลับ</button>
+  `;
+  document.getElementById('overlay').classList.remove('hidden');
+  document.getElementById('oh-back').onclick = () => renderMemberProfileSheet(returnToCart);
+
+  const orders = await fetchMemberOrders(memberRecord.phone);
+  const listEl = document.getElementById('order-history-list');
+  if(!listEl) return; // sheet closed/navigated away while loading
+  listEl.innerHTML = orders.length === 0
+    ? '<div class="empty-cart">ยังไม่มีประวัติการสั่งซื้อ</div>'
+    : orders.map(o => `
+      <div class="order-card">
+        <div class="oc-top"><span>${o.date}${o.recurringGroupId ? ' 🔁' : ''}</span><span>${fmtBaht(orderPayable(o))}</span></div>
+        <div class="oc-items">
+          ${(o.items||[]).map(it => `<div class="oc-item-text">${customerOrderItemLineHtml(it)}</div>`).join('')}
+        </div>
+        ${o.rewardApplied ? `<div class="oc-note">ใช้โปรโมชั่น: ${o.rewardApplied.name} (ลด ${fmtBaht(o.discount||0)})</div>` : ''}
+        ${o.pointsEarned ? `<div class="oc-note">ได้รับ ${o.pointsEarned} แต้ม</div>` : ''}
+        <div class="oc-time">${o.time} น.</div>
+      </div>`).join('');
 }
 
 function changePinFormHtml(error){
@@ -1534,6 +1767,7 @@ document.getElementById('refresh-summary').onclick = loadSummary;
 document.getElementById('accounting-date').value = todayStr();
 document.getElementById('refresh-accounting').onclick = loadAccounting;
 document.getElementById('add-expense-btn').onclick = onAddExpense;
+document.getElementById('add-ingredient-btn').onclick = onAddIngredient;
 
 async function loadSummary(){
   const dateVal = document.getElementById('summary-date').value || todayStr();
@@ -1545,7 +1779,7 @@ async function loadSummary(){
 
   const itemMap = {};
   orders.forEach(o => (o.items||[]).forEach(it => {
-    if(!itemMap[it.name]) itemMap[it.name] = {qty:0, subtotal:0};
+    if(!itemMap[it.name]) itemMap[it.name] = {qty:0, subtotal:0, id:it.id};
     itemMap[it.name].qty += it.qty;
     itemMap[it.name].subtotal += it.price * it.qty;
   }));
@@ -1553,11 +1787,30 @@ async function loadSummary(){
   const bList = document.getElementById('breakdown-list');
   bList.innerHTML = breakdown.length === 0
     ? '<div class="empty-state">ยังไม่มีออเดอร์ในวันนี้</div>'
-    : breakdown.map(([name, d]) => `
-        <div class="breakdown-row">
-          <span>${name}</span>
-          <span class="b-qty">x${d.qty} · ${fmtBaht(d.subtotal)}</span>
-        </div>`).join('');
+    : breakdown.map(([name, d], idx) => {
+        const menuItem = itemsById[d.id];
+        const hasCostInfo = menuItem && itemIngredientCost(menuItem) != null;
+        const rowId = 'bd-cost-' + idx;
+        return `
+        <div class="breakdown-row-wrap">
+          <div class="breakdown-row">
+            <span>${name}</span>
+            <span class="b-qty">
+              x${d.qty} · ${fmtBaht(d.subtotal)}
+              ${hasCostInfo ? `<button class="b-info-toggle" data-toggle-cost="${rowId}" title="ดูต้นทุนต่อแก้วและสต็อก">ⓘ</button>` : ''}
+            </span>
+          </div>
+          ${hasCostInfo ? `<div class="ing-cost-summary breakdown-cost-detail" id="${rowId}" hidden>${ingredientCostSummaryHtml(menuItem, d.qty)}</div>` : ''}
+        </div>`;
+      }).join('');
+  bList.querySelectorAll('[data-toggle-cost]').forEach(btn => {
+    btn.onclick = () => {
+      const panel = document.getElementById(btn.dataset.toggleCost);
+      if(!panel) return;
+      panel.hidden = !panel.hidden;
+      btn.classList.toggle('open', !panel.hidden);
+    };
+  });
 
   const oList = document.getElementById('order-list');
   oList.innerHTML = orders.length === 0
@@ -1575,7 +1828,10 @@ async function loadSummary(){
           ${o.recurringGroupId ? `<div class="oc-note">🔁 ออเดอร์ล่วงหน้า ชำระเงินไว้ล่วงหน้าแล้ว</div>` : ''}
           ${o.rewardApplied ? `<div class="oc-note">ใช้โปรโมชั่น: ${o.rewardApplied.name} (ลด ${fmtBaht(o.discount||0)})</div>` : ''}
           ${o.note ? `<div class="oc-note">หมายเหตุ: ${o.note}</div>` : ''}
-          <div class="oc-time">${o.time} น.</div>
+          <div class="oc-footer">
+            <div class="oc-time">${o.time} น.</div>
+            <button class="cancel-order-btn" data-cancel-order="${o.key}">ยกเลิกออเดอร์</button>
+          </div>
         </div>`).join('');
 
   document.querySelectorAll('[data-paid-toggle]').forEach(cb => {
@@ -1597,6 +1853,44 @@ async function loadSummary(){
       }
     };
   });
+
+  document.querySelectorAll('[data-cancel-order]').forEach(btn => {
+    const key = btn.dataset.cancelOrder;
+    const order = orders.find(o => o.key === key);
+    if(!order) return;
+    inlineConfirm(btn, 'ยืนยันยกเลิก?', async () => {
+      btn.disabled = true;
+      btn.textContent = 'กำลังยกเลิก...';
+      await cancelOrder(order);
+      await loadSummary();
+      if(dateVal === todayStr()){
+        await loadTodayOrders();
+        renderOrderView();
+      }
+    });
+  });
+}
+
+async function cancelOrder(order){
+  try{
+    await window.storage.delete(order.key, true);
+    if(order.stockDeductions && order.stockDeductions.length){
+      await applyStockDeductions(order.stockDeductions, 1);
+    }
+    if(order.memberPhone){
+      const m = await getMemberByPhone(order.memberPhone);
+      if(m){
+        m.points = Math.max(0, (m.points||0) - (order.pointsEarned||0) + (order.pointsRedeemed||0));
+        m.totalSpent = Math.max(0, (m.totalSpent||0) - (order.payable||0));
+        m.orderCount = Math.max(0, (m.orderCount||0) - 1);
+        await saveMemberRecord(m);
+        if(memberRecord && memberRecord.phone === m.phone){
+          memberRecord = m;
+          updateMemberLinkLabel();
+        }
+      }
+    }
+  }catch(e){}
 }
 
 function findRecipeForItem(menuItem, orderItem){
@@ -1704,7 +1998,94 @@ async function loadAccounting(){
     };
   });
 
+  renderIngredientList();
   loadAllTimeAccounting();
+}
+
+function renderIngredientList(){
+  const el = document.getElementById('ingredient-list');
+  if(!el) return;
+  el.innerHTML = ingredientsData.length === 0
+    ? '<div class="empty-state">ยังไม่มีวัตถุดิบ เพิ่มรายการแรกได้ด้านล่าง</div>'
+    : ingredientsData.map(ing => {
+        const unitCost = ingredientUnitCost(ing);
+        const unit = ing.unit || 'หน่วย';
+        const lowStock = (ing.stockQty || 0) <= 0;
+        return `
+        <div class="ing-card" data-ing-id="${ing.id}">
+          <div class="ing-top">
+            <input class="ing-name" data-ing-field="name" value="${(ing.name||'').replace(/"/g,'&quot;')}">
+            <button class="icon-btn" data-del-ing="${ing.id}">ลบ</button>
+          </div>
+          <div class="ing-row">
+            <span>ซื้อ</span>
+            <input type="number" data-ing-field="packageQty" value="${ing.packageQty}">
+            <input type="text" class="ing-unit-input" data-ing-field="unit" value="${unit.replace(/"/g,'&quot;')}">
+            <span>ราคา</span>
+            <input type="number" data-ing-field="packagePrice" value="${ing.packagePrice}">
+            <span>บาท</span>
+          </div>
+          <div class="ing-cost-line">
+            <span>ต้นทุนต่อ ${unit} = <span class="ing-unit-cost">${fmtBahtPrecise(unitCost)}</span></span>
+            <span>สต็อกคงเหลือ: <input type="number" data-ing-field="stockQty" value="${ing.stockQty}" style="width:70px;"> ${unit}${lowStock ? ' <span class="ing-stock-low">(หมด)</span>' : ''}</span>
+          </div>
+        </div>`;
+      }).join('');
+
+  el.querySelectorAll('.ing-card').forEach(card => {
+    const id = card.dataset.ingId;
+    const ing = ingredientById(id);
+    if(!ing) return;
+    card.querySelectorAll('[data-ing-field]').forEach(input => {
+      input.onchange = async (e) => {
+        const field = input.dataset.ingField;
+        if(field === 'packageQty' || field === 'packagePrice' || field === 'stockQty'){
+          ing[field] = Number(e.target.value) || 0;
+        } else if(field === 'name'){
+          ing.name = e.target.value.trim() || ing.name;
+        } else {
+          ing.unit = e.target.value.trim() || ing.unit;
+        }
+        await saveIngredient(ing);
+        if(syncComputedCosts()) await saveMenu();
+        renderIngredientList();
+      };
+    });
+    inlineConfirm(card.querySelector('[data-del-ing]'), 'ยืนยันลบ?', async () => {
+      await deleteIngredientRecord(id);
+      ingredientsData = ingredientsData.filter(i => i.id !== id);
+      if(syncComputedCosts()) await saveMenu();
+      renderIngredientList();
+    });
+  });
+}
+
+async function onAddIngredient(){
+  const nameInput = document.getElementById('ing-name');
+  const unitInput = document.getElementById('ing-unit');
+  const pkgQtyInput = document.getElementById('ing-pkg-qty');
+  const pkgPriceInput = document.getElementById('ing-pkg-price');
+  const stockInput = document.getElementById('ing-stock');
+
+  const name = nameInput.value.trim();
+  const unit = unitInput.value.trim();
+  const packageQty = Number(pkgQtyInput.value);
+  const packagePrice = Number(pkgPriceInput.value);
+  const stockVal = stockInput.value === '' ? packageQty : Number(stockInput.value);
+
+  let ok = true;
+  if(!name){ nameInput.style.borderColor = 'var(--berry)'; ok = false; } else nameInput.style.borderColor = '';
+  if(!unit){ unitInput.style.borderColor = 'var(--berry)'; ok = false; } else unitInput.style.borderColor = '';
+  if(!packageQty || packageQty <= 0){ pkgQtyInput.style.borderColor = 'var(--berry)'; ok = false; } else pkgQtyInput.style.borderColor = '';
+  if(!packagePrice || packagePrice <= 0){ pkgPriceInput.style.borderColor = 'var(--berry)'; ok = false; } else pkgPriceInput.style.borderColor = '';
+  if(!ok) return;
+
+  const ing = {id:newId('ing'), name, unit, packageQty, packagePrice, stockQty: stockVal || 0, createdAt: Date.now()};
+  ingredientsData.push(ing);
+  await saveIngredient(ing);
+
+  nameInput.value = ''; unitInput.value = ''; pkgQtyInput.value = ''; pkgPriceInput.value = ''; stockInput.value = '';
+  renderIngredientList();
 }
 
 async function loadAllTimeAccounting(){
@@ -1760,11 +2141,10 @@ async function loadRecurringList(){
       }).join('');
 
   document.querySelectorAll('[data-cancel-recur]').forEach(btn => {
-    btn.onclick = async () => {
-      if(!confirm('ยกเลิกวันที่ยังไม่ถึงของออเดอร์ล่วงหน้านี้ทั้งหมด?')) return;
+    inlineConfirm(btn, 'ยืนยันยกเลิก?', async () => {
       await cancelRecurringOrder(btn.dataset.cancelRecur);
       await loadRecurringList();
-    };
+    });
   });
 }
 
@@ -1814,6 +2194,8 @@ function renderMembersList(list){
           <input type="number" placeholder="+/- แต้ม" data-adjust-input="${m.phone}">
           <button data-adjust-btn="${m.phone}">ปรับแต้ม</button>
         </div>
+        <button class="mr-history-toggle" data-history-toggle="${m.phone}">ดูประวัติสั่งซื้อ</button>
+        <div class="mr-history-list" data-history-list="${m.phone}" hidden></div>
       </div>`).join('');
   document.querySelectorAll('[data-pin-toggle]').forEach(btn => {
     btn.onclick = () => {
@@ -1827,6 +2209,32 @@ function renderMembersList(list){
         span.textContent = span.dataset.pin || '-';
         btn.textContent = 'ซ่อนรหัส';
       }
+    };
+  });
+  document.querySelectorAll('[data-history-toggle]').forEach(btn => {
+    btn.onclick = async () => {
+      const phone = btn.dataset.historyToggle;
+      const listEl = document.querySelector(`[data-history-list="${phone}"]`);
+      if(!listEl.hidden){
+        listEl.hidden = true;
+        btn.textContent = 'ดูประวัติสั่งซื้อ';
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'กำลังโหลด...';
+      const orders = await fetchMemberOrders(phone);
+      listEl.innerHTML = orders.length === 0
+        ? '<div class="empty-state">ยังไม่มีประวัติการสั่งซื้อ</div>'
+        : orders.map(o => `
+          <div class="order-card">
+            <div class="oc-top"><span>${o.date}${o.recurringGroupId ? ' 🔁' : ''}</span><span>${fmtBaht(orderPayable(o))}</span></div>
+            <div class="oc-items">${(o.items||[]).map(it => `<div class="oc-item-text">${customerOrderItemLineHtml(it)}</div>`).join('')}</div>
+            ${o.note ? `<div class="oc-note">หมายเหตุ: ${o.note}</div>` : ''}
+            <div class="oc-time">${o.time} น.</div>
+          </div>`).join('');
+      listEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = 'ซ่อนประวัติสั่งซื้อ';
     };
   });
   document.querySelectorAll('[data-adjust-btn]').forEach(btn => {
@@ -1928,6 +2336,37 @@ function recipePerLevelHtml(item){
     </div>`).join('');
 }
 
+function ingredientRecipeLinesHtml(item){
+  const lines = Array.isArray(item.ingredientRecipe) ? item.ingredientRecipe : [];
+  if(lines.length === 0) return '<div class="small-lbl">ยังไม่ได้ตั้งวัตถุดิบสำหรับเมนูนี้</div>';
+  return lines.map((line, idx) => {
+    const ing = ingredientById(line.ingredientId);
+    const name = ing ? ing.name : '(ไม่พบวัตถุดิบนี้แล้ว)';
+    const unit = ing ? ing.unit : '';
+    const cost = ing ? ingredientUnitCost(ing) * (Number(line.qty)||0) : 0;
+    return `
+      <div class="ing-recipe-line">
+        <span>${name} × ${line.qty} ${unit} = ${fmtBahtPrecise(cost)}</span>
+        <button data-del-ing-line="${item.id}" data-line-idx="${idx}" title="ลบ">✕</button>
+      </div>`;
+  }).join('');
+}
+
+function ingredientCostSummaryHtml(item, soldQty){
+  const cost = itemIngredientCost(item);
+  if(cost == null) return '<span>ต้นทุนต่อแก้ว: ใช้ค่าที่กรอกด้วยตัวเองด้านบน</span>';
+  const cups = itemMakeableCups(item);
+  let cupsLine = '';
+  if(cups){
+    const cls = cups.count <= 5 ? 'cups-line low' : 'cups-line';
+    cupsLine = `<div class="${cls}">ชงขายได้อีก ${cups.count} แก้ว จากสต็อกวัตถุดิบ (จำกัดโดย: ${cups.limiting})</div>`;
+  }
+  const totalLine = soldQty
+    ? `<div>ต้นทุนรวม: ${soldQty} แก้ว × ${fmtBahtPrecise(cost)} = <b>${fmtBahtPrecise(cost * soldQty)}</b></div>`
+    : '';
+  return `<div>ต้นทุนต่อแก้ว (คำนวณอัตโนมัติ): <b>${fmtBahtPrecise(cost)}</b></div>${totalLine}${cupsLine}`;
+}
+
 function categoryAdminHtml(cat){
   const items = itemsInCategory(cat.id);
   const itemsHtml = items.map(it => `
@@ -1939,8 +2378,8 @@ function categoryAdminHtml(cat){
       <div class="row-2">
         <span class="small-lbl">ราคาขาย</span>
         <input type="number" step="1" data-field="price" value="${it.price}">
-        <span class="small-lbl">ต้นทุน</span>
-        <input type="number" step="1" data-field="cost" value="${it.cost || 0}">
+        <span class="small-lbl">ต้นทุน${itemIngredientCost(it) != null ? ' (อัตโนมัติ)' : ''}</span>
+        <input type="number" step="0.01" data-field="cost" value="${it.cost || 0}" ${itemIngredientCost(it) != null ? 'disabled title="คำนวณอัตโนมัติจากวัตถุดิบด้านล่าง"' : ''}>
         <span class="small-lbl">โควต้า/วัน</span>
         <input type="number" min="0" data-field="quota" placeholder="ไม่จำกัด" value="${it.quota != null ? it.quota : ''}">
         <span class="small-lbl">แต้มที่ได้/แก้ว</span>
@@ -1952,6 +2391,21 @@ function categoryAdminHtml(cat){
       <div class="row-3 recipe-per-level">
         <span class="small-lbl">สูตร/วิธีทำตามระดับความหวาน (สำหรับพนักงานเวลาทำออเดอร์)</span>
         ${recipePerLevelHtml(it)}
+      </div>
+      <div class="row-3 ingredient-recipe-block">
+        <span class="small-lbl">วัตถุดิบที่ใช้ต่อ 1 แก้ว (ระบบจะคำนวณ "ต้นทุน" ด้านบนให้อัตโนมัติ)</span>
+        <div class="ing-recipe-lines" data-recipe-item-id="${it.id}">
+          ${ingredientRecipeLinesHtml(it)}
+        </div>
+        <div class="ing-recipe-add-row">
+          <select class="ing-recipe-select" data-recipe-item-id="${it.id}">
+            <option value="">-- เลือกวัตถุดิบ --</option>
+            ${ingredientsData.map(ing => `<option value="${ing.id}">${ing.name} (${ing.unit})</option>`).join('')}
+          </select>
+          <input type="number" class="ing-recipe-qty" placeholder="จำนวน" data-recipe-item-id="${it.id}">
+          <button class="icon-btn" data-add-ing-line="${it.id}">+ เพิ่ม</button>
+        </div>
+        <div class="ing-cost-summary" id="ing-cost-summary-${it.id}">${ingredientCostSummaryHtml(it)}</div>
       </div>
     </div>`).join('');
 
@@ -2026,7 +2480,7 @@ function attachMenuPanelHandlers(){
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
     card.querySelector('[data-add-item]').onclick = () => {
-      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, points:null, recipe:{}});
+      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, points:null, recipe:{}, ingredientRecipe:[]});
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
 
@@ -2050,6 +2504,36 @@ function attachMenuPanelHandlers(){
           saveMenu();
         };
       });
+
+      const addIngBtn = row.querySelector('[data-add-ing-line]');
+      if(addIngBtn){
+        addIngBtn.onclick = async () => {
+          const select = row.querySelector('.ing-recipe-select');
+          const qtyInput = row.querySelector('.ing-recipe-qty');
+          const ingredientId = select.value;
+          const qty = Number(qtyInput.value);
+          if(!ingredientId || !qty || qty <= 0){
+            if(!ingredientId) select.style.borderColor = 'var(--berry)';
+            if(!qty || qty <= 0) qtyInput.style.borderColor = 'var(--berry)';
+            return;
+          }
+          if(!Array.isArray(item.ingredientRecipe)) item.ingredientRecipe = [];
+          item.ingredientRecipe.push({ingredientId, qty});
+          syncComputedCosts();
+          await saveMenu();
+          renderMenuPanel();
+        };
+      }
+      row.querySelectorAll('[data-del-ing-line]').forEach(btn => {
+        btn.onclick = async () => {
+          const idx = Number(btn.dataset.lineIdx);
+          if(Array.isArray(item.ingredientRecipe)) item.ingredientRecipe.splice(idx, 1);
+          syncComputedCosts();
+          await saveMenu();
+          renderMenuPanel();
+        };
+      });
+
       row.querySelector('[data-del-item]').onclick = () => {
         menuData.items = menuData.items.filter(i => i.id !== itemId);
         rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
@@ -2079,6 +2563,7 @@ function updateClock(){
 
 async function init(){
   await loadAdminPin();
+  await loadIngredients();
   await loadMenu();
   await loadRewards();
   await refreshMemberRecord();
