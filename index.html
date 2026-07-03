@@ -205,6 +205,58 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .oc-item-text{font-size:13px;color:var(--cream-dim);line-height:1.5;}
 .oc-item-text.paid{color:var(--green);text-decoration:line-through;}
 .oc-note{font-size:12px;color:var(--cream-dim);font-style:italic;margin-top:4px;}
+
+.member-box{background:var(--surface);border:0.5px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:16px;}
+.member-box .mb-title{font-family:var(--font-display);font-weight:600;font-size:14.5px;margin:0 0 10px;color:var(--gold);}
+.member-greet{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.member-greet .mg-name{font-size:14px;}
+.member-greet .mg-points{font-family:var(--font-display);font-weight:600;color:var(--gold);font-size:13.5px;}
+.member-logout{background:none;border:none;color:var(--cream-dim);font-size:12px;text-decoration:underline;cursor:pointer;padding:2px;}
+.member-toggle-row{display:flex;justify-content:center;gap:14px;margin-top:10px;}
+.member-toggle-row button{background:none;border:none;color:var(--cream-dim);font-size:12.5px;cursor:pointer;padding:2px;text-decoration:underline;}
+.member-toggle-row button.active{color:var(--gold);font-weight:600;}
+.member-error{color:var(--berry);font-size:12.5px;margin-top:6px;min-height:14px;}
+.member-skip{display:block;text-align:center;margin-top:10px;font-size:12px;color:var(--cream-dim);background:none;border:none;text-decoration:underline;cursor:pointer;}
+.reward-select{width:100%;background:var(--surface-2);color:var(--cream);border:0.5px solid var(--line);border-radius:9px;
+  padding:9px 10px;font-family:var(--font-body);font-size:13.5px;margin-top:6px;}
+.discount-row{display:flex;justify-content:space-between;font-size:13px;color:var(--green);margin:4px 0;}
+
+.member-row{background:var(--surface);border-radius:12px;padding:13px 15px;margin-bottom:10px;}
+.member-row .mr-top{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:4px;}
+.member-row .mr-sub{font-size:12.5px;color:var(--cream-dim);display:flex;justify-content:space-between;margin-bottom:8px;}
+.member-row .mr-adjust{display:flex;gap:6px;align-items:center;}
+.member-row .mr-adjust input{width:70px;background:var(--surface-2);border:0.5px solid var(--line);border-radius:8px;
+  padding:7px 8px;color:var(--cream);font-family:var(--font-body);font-size:13px;}
+.member-row .mr-adjust button{background:var(--surface-2);border:0.5px solid var(--line);color:var(--cream);border-radius:8px;
+  padding:7px 10px;font-size:12.5px;cursor:pointer;font-family:var(--font-body);}
+.member-row .mr-pin-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12.5px;color:var(--cream-dim);}
+.member-row .mr-pin-val{font-family:var(--font-display);letter-spacing:2px;color:var(--cream);}
+.member-row .mr-pin-toggle{background:var(--surface-2);border:0.5px solid var(--line);color:var(--cream);border-radius:8px;
+  padding:5px 9px;font-size:11.5px;cursor:pointer;font-family:var(--font-body);}
+.member-search{width:100%;background:var(--surface);border:0.5px solid var(--line);border-radius:10px;padding:10px 12px;
+  color:var(--cream);font-family:var(--font-body);font-size:13.5px;margin-bottom:14px;}
+.reward-row{background:var(--surface);border:0.5px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px;}
+.reward-row .rr-1{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
+.reward-row .rr-1 input.rr-name{flex:1;}
+.reward-row .rr-2{display:flex;gap:6px;flex-wrap:wrap;}
+.reward-row select,.reward-row input{background:var(--surface-2);border:0.5px solid var(--line);border-radius:8px;
+  padding:8px 9px;color:var(--cream);font-family:var(--font-body);font-size:13px;}
+.reward-row input.rr-cost,.reward-row input.rr-value{width:90px;}
+.admin-subtabs{flex-wrap:wrap;}
+
+.recurring-toggle{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--cream-dim);margin-bottom:4px;cursor:pointer;}
+.recurring-box{background:var(--surface);border:0.5px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:16px;}
+.weekday-grid{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;}
+.weekday-chip{flex:1;min-width:38px;text-align:center;padding:9px 0;border-radius:9px;border:0.5px solid var(--line);
+  background:var(--surface-2);color:var(--cream-dim);font-size:12.5px;cursor:pointer;user-select:none;}
+.weekday-chip.on{background:var(--gold);color:#2A1608;border-color:var(--gold);font-weight:600;}
+.recurring-summary{font-size:13px;color:var(--cream-dim);line-height:1.6;margin-top:8px;}
+.recurring-summary b{color:var(--gold);}
+.recur-row{background:var(--surface);border-radius:12px;padding:13px 15px;margin-bottom:10px;}
+.recur-row .rc-top{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:4px;}
+.recur-row .rc-sub{font-size:12.5px;color:var(--cream-dim);margin-bottom:8px;line-height:1.5;}
+.recur-row button.cancel-recur{background:none;border:0.5px solid var(--berry);color:var(--berry);border-radius:8px;
+  padding:7px 10px;font-size:12.5px;cursor:pointer;font-family:var(--font-body);}
 </style>
 </head>
 <body>
@@ -219,7 +271,8 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
   </div>
   <div class="waffle-strip"></div>
 
-  <div class="admin-entry">
+  <div class="admin-entry" style="justify-content:space-between;">
+    <button class="admin-link" id="member-link">เข้าสู่ระบบสมาชิก</button>
     <button class="admin-link" id="admin-link">สำหรับร้าน</button>
   </div>
 
@@ -231,6 +284,7 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
       <button id="admin-tab-summary" class="active">สรุปออเดอร์</button>
       <button id="admin-tab-accounting">บัญชี</button>
       <button id="admin-tab-menu">จัดการเมนู</button>
+      <button id="admin-tab-members">สมาชิก</button>
     </div>
 
     <div id="summary-panel">
@@ -328,6 +382,55 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
     </div>
 
     <div id="menu-panel" hidden></div>
+
+    <div id="members-panel" hidden>
+      <div class="promo-card" style="margin-bottom:18px;">
+        <p class="promo-title">เปลี่ยนรหัสหลังบ้าน</p>
+        <p class="promo-sub">รหัสสำหรับเข้าหลังบ้าน (คนละอันกับรหัสผ่านสมาชิก)</p>
+        <div class="promo-row">
+          <input type="password" inputmode="numeric" id="admin-pin-old" placeholder="รหัสเดิม" maxlength="8">
+        </div>
+        <div class="promo-row">
+          <input type="password" inputmode="numeric" id="admin-pin-new" placeholder="รหัสใหม่ (4-8 หลัก)" maxlength="8">
+          <input type="password" inputmode="numeric" id="admin-pin-confirm" placeholder="ยืนยันรหัสใหม่" maxlength="8">
+        </div>
+        <div class="member-error" id="admin-pin-error"></div>
+        <button class="promo-add" id="admin-pin-save-btn">บันทึกรหัสหลังบ้านใหม่</button>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="m-lbl">จำนวนสมาชิก</div>
+          <div class="m-val" id="metric-member-count">0</div>
+        </div>
+        <div class="metric">
+          <div class="m-lbl">แต้มค้างอยู่ในระบบ (รวม)</div>
+          <div class="m-val" id="metric-member-points">0</div>
+        </div>
+      </div>
+
+      <h2 class="section-title">ตั้งค่าการสะสมแต้ม</h2>
+      <div class="promo-card">
+        <p class="promo-sub" style="margin-bottom:10px;">ยอดซื้อกี่บาท ถึงจะได้ 1 แต้ม (ค่าเริ่มต้น: 1 บาท = 1 แต้ม)</p>
+        <div class="promo-row">
+          <input type="number" min="0.1" step="0.1" id="points-ratio-input" placeholder="บาทต่อ 1 แต้ม">
+        </div>
+        <button class="promo-add" id="save-points-ratio-btn">บันทึกอัตราสะสมแต้ม</button>
+      </div>
+
+      <h2 class="section-title" style="margin-top:24px;">โปรโมชั่น/ของรางวัลแลกแต้ม</h2>
+      <p class="card-note">ลูกค้าจะเห็นรายการนี้ตอนสั่งซื้อ ถ้ามีแต้มพอ สามารถเลือกแลกส่วนลดได้เลย</p>
+      <div id="rewards-list"></div>
+      <button class="submit-btn" id="add-reward-btn" style="margin-bottom:24px;">+ เพิ่มโปรโมชั่น/ของรางวัลใหม่</button>
+
+      <h2 class="section-title">รายชื่อสมาชิก</h2>
+      <input type="text" class="member-search" id="member-search" placeholder="ค้นหาด้วยเบอร์โทรหรือชื่อ">
+      <div id="members-list"></div>
+
+      <h2 class="section-title" style="margin-top:24px;">ออเดอร์ล่วงหน้า (จ่ายครั้งเดียว)</h2>
+      <p class="card-note">ลูกค้าที่ตั้งสั่งซ้ำหลายวัน (เช่น จ-ศ) จะแสดงที่นี่ ยกเลิกวันที่ยังไม่ถึงได้ถ้าลูกค้าขอเปลี่ยนแปลง</p>
+      <div id="recurring-list"></div>
+    </div>
   </section>
 </div>
 
@@ -391,7 +494,18 @@ window.storage = {
 <!-- ===== จบส่วน Firebase setup ===== -->
 
 <script>
-const ADMIN_PIN = '1014';
+let adminPin = '1014';
+function adminPinStorageKey(){ return 'settings:adminPin'; }
+async function loadAdminPin(){
+  try{
+    const r = await window.storage.get(adminPinStorageKey(), true);
+    if(r && r.value) adminPin = r.value;
+  }catch(e){ /* no custom pin saved yet, keep default */ }
+}
+async function saveAdminPin(newPin){
+  adminPin = newPin;
+  await window.storage.set(adminPinStorageKey(), newPin, true);
+}
 
 const DEFAULT_MENU = {
   sweetnessLevels: [
@@ -425,6 +539,158 @@ let cart = [];
 let todayOrders = [];
 let quotaUsed = {};
 let selectedSweetness = {};
+
+const DEFAULT_REWARDS = { pointsPerBaht: 1, rewards: [] };
+let rewardsData = JSON.parse(JSON.stringify(DEFAULT_REWARDS));
+let memberSession = null;   // {phone, pin} จำไว้ในเครื่องนี้
+let memberRecord = null;    // ข้อมูลสมาชิกล่าสุดจากฐานข้อมูล
+let selectedRewardId = null;
+let recurringMode = false;
+let recurringWeekdays = new Set([1,2,3,4,5]); // จ-ศ เป็นค่าเริ่มต้น
+let recurringWeeks = 1;
+let recurringStartDate = null;
+
+async function loadRewards(){
+  try{
+    const res = await window.storage.get('rewards-data', true);
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      rewardsData = { pointsPerBaht: parsed.pointsPerBaht || 1, rewards: Array.isArray(parsed.rewards) ? parsed.rewards : [] };
+    } else {
+      await saveRewards();
+    }
+  }catch(e){
+    await saveRewards();
+  }
+}
+async function saveRewards(){
+  try{ await window.storage.set('rewards-data', JSON.stringify(rewardsData), true); }catch(e){}
+}
+
+function memberStorageKey(phone){ return 'member:' + phone; }
+
+async function getMemberByPhone(phone){
+  try{
+    const r = await window.storage.get(memberStorageKey(phone), true);
+    return JSON.parse(r.value);
+  }catch(e){ return null; }
+}
+async function saveMemberRecord(m){
+  await window.storage.set(memberStorageKey(m.phone), JSON.stringify(m), true);
+}
+async function fetchAllMembers(){
+  try{
+    const list = await window.storage.list('member:', true);
+    if(!list || !list.keys) return [];
+    const results = await Promise.all(list.keys.map(k => window.storage.get(k, true).catch(() => null)));
+    return results.filter(Boolean).map(r => { try{ return JSON.parse(r.value); }catch(e){ return null; } }).filter(Boolean);
+  }catch(e){ return []; }
+}
+
+function saveMemberSession(phone, pin){
+  try{ localStorage.setItem('sunniva_member_session', JSON.stringify({phone, pin})); }catch(e){}
+}
+function loadMemberSessionFromDevice(){
+  try{ return JSON.parse(localStorage.getItem('sunniva_member_session')); }catch(e){ return null; }
+}
+function clearMemberSessionOnDevice(){
+  try{ localStorage.removeItem('sunniva_member_session'); }catch(e){}
+}
+
+async function registerMember(phone, pin, name){
+  if(!/^[0-9]{9,10}$/.test(phone)) return {error:'กรอกเบอร์โทรศัพท์ให้ถูกต้อง (9-10 หลัก)'};
+  if(!/^[0-9]{4,6}$/.test(pin)) return {error:'รหัสผ่านต้องเป็นตัวเลข 4-6 หลัก'};
+  if(!name) return {error:'กรุณากรอกชื่อ'};
+  const existing = await getMemberByPhone(phone);
+  if(existing) return {error:'เบอร์นี้เป็นสมาชิกอยู่แล้ว กรุณาเข้าสู่ระบบ'};
+  const m = {phone, pin, name, points:0, totalSpent:0, orderCount:0, createdAt: Date.now()};
+  await saveMemberRecord(m);
+  return {member:m};
+}
+
+async function loginMember(phone, pin){
+  const m = await getMemberByPhone(phone);
+  if(!m) return {error:'ไม่พบเบอร์นี้ในระบบสมาชิก'};
+  if(String(m.pin) !== String(pin)) return {error:'รหัสผ่านไม่ถูกต้อง'};
+  return {member:m};
+}
+
+async function changeMemberPin(phone, oldPin, newPin){
+  if(!/^[0-9]{4,6}$/.test(newPin)) return {error:'รหัสผ่านใหม่ต้องเป็นตัวเลข 4-6 หลัก'};
+  const m = await getMemberByPhone(phone);
+  if(!m) return {error:'ไม่พบเบอร์นี้ในระบบสมาชิก'};
+  if(String(m.pin) !== String(oldPin)) return {error:'รหัสผ่านเดิมไม่ถูกต้อง'};
+  m.pin = newPin;
+  await saveMemberRecord(m);
+  return {member:m};
+}
+
+async function refreshMemberRecord(){
+  memberSession = loadMemberSessionFromDevice();
+  if(!memberSession){ memberRecord = null; return; }
+  const m = await getMemberByPhone(memberSession.phone);
+  if(m && String(m.pin) === String(memberSession.pin)){
+    memberRecord = m;
+  } else {
+    memberRecord = null;
+    memberSession = null;
+    clearMemberSessionOnDevice();
+  }
+}
+
+function memberLogout(){
+  clearMemberSessionOnDevice();
+  memberSession = null;
+  memberRecord = null;
+  selectedRewardId = null;
+  updateMemberLinkLabel();
+}
+
+function updateMemberLinkLabel(){
+  const btn = document.getElementById('member-link');
+  if(!btn) return;
+  btn.textContent = memberRecord ? ('👤 ' + memberRecord.name + ' · ' + memberRecord.points + ' แต้ม') : 'เข้าสู่ระบบสมาชิก';
+}
+
+function computeRecurringDates(startDateStr, weekdaySet, weeksCount){
+  const [y,m,d] = startDateStr.split('-').map(Number);
+  const start = Date.UTC(y, m-1, d);
+  const totalDays = weeksCount * 7;
+  const dates = [];
+  for(let i=0;i<totalDays;i++){
+    const cur = new Date(start + i*86400000);
+    if(weekdaySet.has(cur.getUTCDay())){
+      dates.push(cur.toISOString().slice(0,10));
+    }
+  }
+  return dates;
+}
+function fmtDateShort(iso){
+  const [y,m,d] = iso.split('-');
+  return d + '/' + m;
+}
+
+function eligibleRewards(){
+  if(!memberRecord) return [];
+  return (rewardsData.rewards||[]).filter(r => r.active !== false && memberRecord.points >= r.pointsCost);
+}
+
+function rewardDiscountValue(reward, subtotal){
+  if(!reward) return 0;
+  if(reward.type === 'percent') return Math.round(subtotal * (reward.value/100));
+  return Math.min(reward.value, subtotal);
+}
+
+function cartLinePoints(l){
+  const item = itemsById[l.id];
+  if(item && item.points != null && item.points !== ''){
+    return Number(item.points) * l.qty;
+  }
+  return Math.floor((l.price * l.qty) / (rewardsData.pointsPerBaht || 1));
+}
+function cartPointsTotal(items){
+  return (items || cart).reduce((s, l) => s + cartLinePoints(l), 0);
+}
 
 function ensureValidSweetness(){
   if(!Array.isArray(menuData.sweetnessLevels) || menuData.sweetnessLevels.length === 0){
@@ -689,6 +955,9 @@ function addPromo(catId){
 function cartTotal(){
   return cart.reduce((sum, l) => sum + l.price * l.qty, 0);
 }
+function orderPayable(o){
+  return o.payable != null ? o.payable : Math.max((o.total||0) - (o.discount||0), 0);
+}
 function cartCount(){
   return cart.reduce((sum, l) => sum + l.qty, 0);
 }
@@ -712,6 +981,64 @@ function closeSheet(){
   document.getElementById('overlay').classList.add('hidden');
 }
 
+function checkoutMemberBoxHtml(){
+  if(memberRecord){
+    const rewards = eligibleRewards();
+    const rewardOpts = rewards.length
+      ? `<select class="reward-select" id="reward-select">
+          <option value="">ไม่ใช้แต้มแลกส่วนลด</option>
+          ${rewards.map(r => `<option value="${r.id}" ${selectedRewardId === r.id ? 'selected' : ''}>${r.name} (ใช้ ${r.pointsCost} แต้ม)</option>`).join('')}
+        </select>`
+      : `<p class="card-note" style="margin:6px 0 0;">ยังมีแต้มไม่พอสำหรับแลกโปรโมชั่นใด ๆ ตอนนี้</p>`;
+    return `
+    <div class="member-box">
+      <div class="member-greet">
+        <span class="mg-name">👤 คุณ${memberRecord.name} · แต้มสะสม <span class="mg-points">${memberRecord.points}</span> แต้ม</span>
+        <button class="member-logout" id="checkout-member-logout">ออกจากระบบ</button>
+      </div>
+      ${rewardOpts}
+    </div>`;
+  }
+  return `
+  <div class="member-box">
+    <p class="mb-title">เข้าสู่ระบบสมาชิกเพื่อสะสมแต้ม (ไม่บังคับ)</p>
+    <button class="submit-btn" id="checkout-open-member" style="background:var(--surface-2);color:var(--cream);">เข้าสู่ระบบ / สมัครสมาชิก</button>
+  </div>`;
+}
+
+function recurringBoxHtml(){
+  if(!recurringStartDate) recurringStartDate = todayStr();
+  const weekdayDefs = [ {v:1,l:'จ'}, {v:2,l:'อ'}, {v:3,l:'พ'}, {v:4,l:'พฤ'}, {v:5,l:'ศ'}, {v:6,l:'ส'}, {v:0,l:'อา'} ];
+  const chips = weekdayDefs.map(w => `<div class="weekday-chip ${recurringWeekdays.has(w.v) ? 'on' : ''}" data-weekday="${w.v}">${w.l}</div>`).join('');
+  const dates = computeRecurringDates(recurringStartDate, recurringWeekdays, recurringWeeks);
+  const totalAll = cartTotal() * dates.length;
+  const summary = dates.length > 0
+    ? `<div class="recurring-summary">สั่งทั้งหมด <b>${dates.length} วัน</b> (${dates.map(fmtDateShort).join(', ')})<br>ยอดชำระครั้งเดียว <b>${fmtBaht(totalAll)}</b></div>`
+    : `<div class="recurring-summary" style="color:var(--berry);">กรุณาเลือกอย่างน้อย 1 วัน</div>`;
+  return `
+  <div class="recurring-box">
+    <label class="recurring-toggle">
+      <input type="checkbox" id="recurring-check" ${recurringMode ? 'checked' : ''}>
+      สั่งล่วงหน้าเป็นชุด (กดครั้งเดียว จ่ายครั้งเดียว หลายวัน)
+    </label>
+    ${recurringMode ? `
+    <div class="field" style="margin-top:10px;">
+      <label>เริ่มตั้งแต่วันที่</label>
+      <input type="date" id="recurring-start" value="${recurringStartDate}">
+    </div>
+    <div class="weekday-grid" id="recurring-weekdays">${chips}</div>
+    <div class="field">
+      <label>จำนวนสัปดาห์</label>
+      <select id="recurring-weeks">
+        ${[1,2,3,4].map(n => `<option value="${n}" ${recurringWeeks === n ? 'selected' : ''}>${n} สัปดาห์</option>`).join('')}
+      </select>
+    </div>
+    ${summary}
+    <p class="card-note" style="margin-top:8px;">*โปรโมชั่นแลกแต้มใช้ได้เฉพาะออเดอร์รายวันเท่านั้น และระบบจะไม่เช็คโควต้าล่วงหน้าให้</p>
+    ` : ''}
+  </div>`;
+}
+
 function renderCartSheetBody(){
   const body = document.getElementById('sheet-body');
   if(cart.length === 0){
@@ -727,23 +1054,37 @@ function renderCartSheetBody(){
       </div>
     </div>`).join('');
 
+  const subtotal = cartTotal();
+  const reward = (memberRecord && !recurringMode) ? (rewardsData.rewards||[]).find(r => r.id === selectedRewardId) : null;
+  const discount = reward ? rewardDiscountValue(reward, subtotal) : 0;
+  const payable = Math.max(subtotal - discount, 0);
+  const recurringDates = recurringMode ? computeRecurringDates(recurringStartDate || todayStr(), recurringWeekdays, recurringWeeks) : [];
+  const submitLabel = recurringMode
+    ? (recurringDates.length > 0 ? `ยืนยันสั่งล่วงหน้า ${recurringDates.length} วัน • ${fmtBaht(subtotal * recurringDates.length)}` : 'กรุณาเลือกวันที่ก่อน')
+    : `ยืนยันสั่งซื้อ • ${fmtBaht(payable)}`;
+  const submitDisabled = recurringMode && recurringDates.length === 0;
+
   body.innerHTML = `
     <h3>ตะกร้าของคุณ</h3>
     ${lines}
-    <div class="total-row"><span class="lbl">ยอดรวม</span><span class="val">${fmtBaht(cartTotal())}</span></div>
+    <div class="total-row"><span class="lbl">ยอดรวม/วัน</span><span class="val">${fmtBaht(subtotal)}</span></div>
+    ${discount > 0 ? `<div class="discount-row"><span>ส่วนลด (${reward.name})</span><span>-${fmtBaht(discount)}</span></div>
+    <div class="total-row" style="margin-top:0;"><span class="lbl">ยอดที่ต้องชำระ</span><span class="val">${fmtBaht(payable)}</span></div>` : ''}
+    ${recurringBoxHtml()}
+    ${checkoutMemberBoxHtml()}
     <div class="field">
       <label>ชื่อผู้สั่ง *</label>
-      <input type="text" id="order-name" placeholder="ชื่อ หรือ ชื่อเล่น">
+      <input type="text" id="order-name" value="${memberRecord ? memberRecord.name.replace(/"/g,'&quot;') : ''}" placeholder="ชื่อ หรือ ชื่อเล่น">
     </div>
     <div class="field">
       <label>เบอร์โทร / ไลน์ (ถ้ามี)</label>
-      <input type="text" id="order-contact" placeholder="สำหรับติดต่อกลับ">
+      <input type="text" id="order-contact" value="${memberRecord ? memberRecord.phone : ''}" placeholder="สำหรับติดต่อกลับ">
     </div>
     <div class="field">
       <label>หมายเหตุ (ถ้ามี)</label>
       <textarea id="order-note" placeholder="เช่น ไม่ใส่วิปครีม, หวานน้อย"></textarea>
     </div>
-    <button class="submit-btn" id="submit-order">ยืนยันสั่งซื้อ • ${fmtBaht(cartTotal())}</button>
+    <button class="submit-btn" id="submit-order" ${submitDisabled ? 'disabled' : ''}>${submitLabel}</button>
   `;
 
   document.querySelectorAll('[data-remove-idx]').forEach(btn => {
@@ -755,7 +1096,38 @@ function renderCartSheetBody(){
       renderCartSheetBody();
     };
   });
-  document.getElementById('submit-order').onclick = submitOrder;
+  const rewardSel = document.getElementById('reward-select');
+  if(rewardSel){
+    rewardSel.onchange = () => { selectedRewardId = rewardSel.value || null; renderCartSheetBody(); };
+  }
+  const openMemberBtn = document.getElementById('checkout-open-member');
+  if(openMemberBtn){
+    openMemberBtn.onclick = () => openMemberSheet(true);
+  }
+  const logoutBtn = document.getElementById('checkout-member-logout');
+  if(logoutBtn){
+    logoutBtn.onclick = () => { memberLogout(); renderCartSheetBody(); };
+  }
+  const recurCheck = document.getElementById('recurring-check');
+  if(recurCheck){
+    recurCheck.onchange = () => { recurringMode = recurCheck.checked; renderCartSheetBody(); };
+  }
+  const recurStart = document.getElementById('recurring-start');
+  if(recurStart){
+    recurStart.onchange = () => { recurringStartDate = recurStart.value; renderCartSheetBody(); };
+  }
+  const recurWeeks = document.getElementById('recurring-weeks');
+  if(recurWeeks){
+    recurWeeks.onchange = () => { recurringWeeks = Number(recurWeeks.value); renderCartSheetBody(); };
+  }
+  document.querySelectorAll('[data-weekday]').forEach(chip => {
+    chip.onclick = () => {
+      const v = Number(chip.dataset.weekday);
+      if(recurringWeekdays.has(v)) recurringWeekdays.delete(v); else recurringWeekdays.add(v);
+      renderCartSheetBody();
+    };
+  });
+  document.getElementById('submit-order').onclick = recurringMode ? submitRecurringOrder : submitOrder;
 }
 
 async function submitOrder(){
@@ -772,26 +1144,48 @@ async function submitOrder(){
   btn.disabled = true;
   btn.textContent = 'กำลังส่งออเดอร์...';
 
+  const subtotal = cartTotal();
+  const reward = memberRecord ? (rewardsData.rewards||[]).find(r => r.id === selectedRewardId) : null;
+  const discount = reward ? rewardDiscountValue(reward, subtotal) : 0;
+  const payable = Math.max(subtotal - discount, 0);
+  const pointsEarned = memberRecord ? cartPointsTotal(cart) : 0;
+  const pointsRedeemed = reward ? reward.pointsCost : 0;
+
   const order = {
     name, contact, note,
     items: cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, paid:false})),
-    total: cartTotal(),
+    total: subtotal,
+    discount, payable,
     date: todayStr(),
     time: bkkTimeStr(),
-    ts: Date.now()
+    ts: Date.now(),
+    memberPhone: memberRecord ? memberRecord.phone : null,
+    rewardApplied: reward ? {id:reward.id, name:reward.name} : null,
+    pointsEarned, pointsRedeemed
   };
   const key = 'orders:' + todayStr() + ':' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
 
   try{
     const result = await window.storage.set(key, JSON.stringify(order), true);
     if(!result){ throw new Error('save failed'); }
+
+    if(memberRecord){
+      memberRecord.points = memberRecord.points - pointsRedeemed + pointsEarned;
+      memberRecord.totalSpent = (memberRecord.totalSpent||0) + payable;
+      memberRecord.orderCount = (memberRecord.orderCount||0) + 1;
+      await saveMemberRecord(memberRecord);
+      updateMemberLinkLabel();
+    }
+    selectedRewardId = null;
+
     const body = document.getElementById('sheet-body');
     body.innerHTML = `
       <div class="success-box">
         <div class="ok">✓</div>
         <h4>ส่งออเดอร์เรียบร้อย</h4>
         <p>ขอบคุณคุณ ${name} นะครับ/คะ</p>
-        <p>ยอดรวม ${fmtBaht(order.total)} • เวลา ${order.time} น.</p>
+        <p>ยอดชำระ ${fmtBaht(payable)} • เวลา ${order.time} น.</p>
+        ${memberRecord ? `<p>คุณได้รับ ${pointsEarned} แต้ม (คงเหลือ ${memberRecord.points} แต้ม)</p>` : ''}
       </div>
       <button class="submit-btn" id="done-btn">ปิดหน้าต่าง</button>
     `;
@@ -807,11 +1201,277 @@ async function submitOrder(){
   }
 }
 
+async function submitRecurringOrder(){
+  const nameInput = document.getElementById('order-name');
+  const name = nameInput.value.trim();
+  if(!name){
+    nameInput.style.borderColor = 'var(--berry)';
+    nameInput.focus();
+    return;
+  }
+  const contact = document.getElementById('order-contact').value.trim();
+  const note = document.getElementById('order-note').value.trim();
+  const startDate = recurringStartDate || todayStr();
+  const dates = computeRecurringDates(startDate, recurringWeekdays, recurringWeeks);
+  if(dates.length === 0) return;
+
+  const btn = document.getElementById('submit-order');
+  btn.disabled = true;
+  btn.textContent = 'กำลังบันทึกออเดอร์ล่วงหน้า...';
+
+  const perDayItems = cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, paid:true}));
+  const perDaySubtotal = cartTotal();
+  const perDayPoints = memberRecord ? cartPointsTotal(cart) : 0;
+  const recurringId = newId('recur');
+  const orderKeys = [];
+
+  try{
+    for(const dateVal of dates){
+      const key = 'orders:' + dateVal + ':' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+      const order = {
+        name, contact, note,
+        items: JSON.parse(JSON.stringify(perDayItems)),
+        total: perDaySubtotal, discount:0, payable: perDaySubtotal,
+        date: dateVal, time: 'สั่งล่วงหน้า', ts: Date.now(),
+        memberPhone: memberRecord ? memberRecord.phone : null,
+        recurringGroupId: recurringId, prepaid: true,
+        pointsEarned: perDayPoints, pointsRedeemed: 0
+      };
+      await window.storage.set(key, JSON.stringify(order), true);
+      orderKeys.push({date: dateVal, key});
+    }
+
+    const recurringRecord = {
+      id: recurringId, name, contact, memberPhone: memberRecord ? memberRecord.phone : null,
+      itemsSummary: cart.map(l => `${l.name}${l.sweet ? '('+l.sweet+')' : ''} x${l.qty}`).join(', '),
+      pricePerDay: perDaySubtotal, totalPrice: perDaySubtotal * dates.length,
+      startDate, weeksCount: recurringWeeks, weekdays: Array.from(recurringWeekdays),
+      orderKeys, createdAt: Date.now()
+    };
+    await window.storage.set('recurring:' + recurringId, JSON.stringify(recurringRecord), true);
+
+    if(memberRecord){
+      const totalPoints = perDayPoints * dates.length;
+      memberRecord.points = (memberRecord.points||0) + totalPoints;
+      memberRecord.totalSpent = (memberRecord.totalSpent||0) + (perDaySubtotal * dates.length);
+      memberRecord.orderCount = (memberRecord.orderCount||0) + dates.length;
+      await saveMemberRecord(memberRecord);
+      updateMemberLinkLabel();
+    }
+
+    const body = document.getElementById('sheet-body');
+    body.innerHTML = `
+      <div class="success-box">
+        <div class="ok">✓</div>
+        <h4>ตั้งออเดอร์ล่วงหน้าเรียบร้อย</h4>
+        <p>ขอบคุณคุณ ${name} นะครับ/คะ</p>
+        <p>รวม ${dates.length} วัน (${dates.map(fmtDateShort).join(', ')})</p>
+        <p>ยอดชำระทั้งหมด ${fmtBaht(perDaySubtotal * dates.length)} • ถือว่าจ่ายครบแล้วทุกวัน</p>
+        ${memberRecord ? `<p>คุณได้รับ ${perDayPoints * dates.length} แต้ม (คงเหลือ ${memberRecord.points} แต้ม)</p>` : ''}
+      </div>
+      <button class="submit-btn" id="done-btn">ปิดหน้าต่าง</button>
+    `;
+    document.getElementById('done-btn').onclick = () => {
+      closeSheet();
+      cart = [];
+      recurringMode = false;
+      renderCartBar();
+      loadTodayOrders().then(renderOrderView);
+    };
+  }catch(e){
+    btn.disabled = false;
+    btn.textContent = 'ลองอีกครั้ง';
+  }
+}
+
+document.getElementById('member-link').onclick = () => openMemberSheet(false);
+
+function memberFormHtml(mode, error){
+  const isLogin = mode !== 'register';
+  return `
+    <h3>สมาชิก Sunniva Coffee</h3>
+    <div class="field">
+      <label>เบอร์โทรศัพท์</label>
+      <input type="tel" inputmode="numeric" id="mf-phone" placeholder="0812345678" maxlength="10">
+    </div>
+    ${isLogin ? '' : `
+    <div class="field">
+      <label>ชื่อ</label>
+      <input type="text" id="mf-name" placeholder="ชื่อ หรือ ชื่อเล่น">
+    </div>`}
+    <div class="field">
+      <label>รหัสผ่าน (ตัวเลข 4-6 หลัก)</label>
+      <input type="password" inputmode="numeric" id="mf-pin" placeholder="เช่น 1234" maxlength="6">
+    </div>
+    <div class="member-error" id="mf-error">${error || ''}</div>
+    <button class="submit-btn" id="mf-submit">${isLogin ? 'เข้าสู่ระบบ' : 'สมัครสมาชิก'}</button>
+    <div class="member-toggle-row">
+      <button data-mode="login" class="${isLogin ? 'active' : ''}">เข้าสู่ระบบ</button>
+      <button data-mode="register" class="${!isLogin ? 'active' : ''}">สมัครสมาชิกใหม่</button>
+    </div>
+    <button class="member-skip" id="mf-skip">ปิดหน้าต่างนี้</button>
+  `;
+}
+
+function openMemberSheet(returnToCart, mode){
+  if(memberRecord){
+    renderMemberProfileSheet(returnToCart);
+    return;
+  }
+  const body = document.getElementById('sheet-body');
+  body.innerHTML = memberFormHtml(mode || 'login', '');
+  document.getElementById('overlay').classList.remove('hidden');
+  wireMemberForm(returnToCart, mode || 'login');
+}
+
+function wireMemberForm(returnToCart, mode){
+  document.querySelectorAll('.member-toggle-row [data-mode]').forEach(b => {
+    b.onclick = () => openMemberSheet(returnToCart, b.dataset.mode);
+  });
+  document.getElementById('mf-skip').onclick = () => {
+    if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
+  };
+  document.getElementById('mf-submit').onclick = async () => {
+    const phone = document.getElementById('mf-phone').value.trim();
+    const pin = document.getElementById('mf-pin').value.trim();
+    const errorEl = document.getElementById('mf-error');
+    const submitBtn = document.getElementById('mf-submit');
+    submitBtn.disabled = true;
+    let result;
+    if(mode === 'register'){
+      const name = document.getElementById('mf-name').value.trim();
+      result = await registerMember(phone, pin, name);
+    } else {
+      result = await loginMember(phone, pin);
+    }
+    submitBtn.disabled = false;
+    if(result.error){
+      errorEl.textContent = result.error;
+      return;
+    }
+    memberRecord = result.member;
+    memberSession = {phone: memberRecord.phone, pin: memberRecord.pin};
+    saveMemberSession(memberRecord.phone, memberRecord.pin);
+    updateMemberLinkLabel();
+    if(returnToCart){ renderCartSheetBody(); } else { renderMemberProfileSheet(false); }
+  };
+}
+
+function renderMemberProfileSheet(returnToCart){
+  const body = document.getElementById('sheet-body');
+  const rewards = eligibleRewards();
+  body.innerHTML = `
+    <h3>สมาชิก Sunniva Coffee</h3>
+    <div class="member-box">
+      <div class="member-greet">
+        <span class="mg-name">👤 คุณ${memberRecord.name}</span>
+        <button class="member-logout" id="profile-logout">ออกจากระบบ</button>
+      </div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric"><div class="m-lbl">แต้มสะสม</div><div class="m-val">${memberRecord.points}</div></div>
+      <div class="metric"><div class="m-lbl">ยอดซื้อสะสม</div><div class="m-val">${fmtBaht(memberRecord.totalSpent||0)}</div></div>
+    </div>
+    <p class="card-note">สั่งซื้อทุก ${rewardsData.pointsPerBaht || 1} บาท รับ 1 แต้ม • สั่งซื้อครบ ${memberRecord.orderCount||0} ครั้งแล้ว</p>
+    ${rewards.length ? `<h2 class="section-title" style="margin-top:16px;">โปรโมชั่นที่แลกได้ตอนนี้</h2>
+      ${rewards.map(r => `<div class="breakdown-row"><span>${r.name}</span><span class="b-qty">${r.pointsCost} แต้ม</span></div>`).join('')}` : ''}
+    <button class="submit-btn" id="profile-change-pin" style="margin-top:16px;background:var(--surface-2);color:var(--cream);">เปลี่ยนรหัสผ่าน</button>
+    <button class="submit-btn" id="profile-close" style="margin-top:8px;">ปิดหน้าต่าง</button>
+  `;
+  document.getElementById('overlay').classList.remove('hidden');
+  document.getElementById('profile-logout').onclick = () => {
+    memberLogout();
+    if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
+  };
+  document.getElementById('profile-change-pin').onclick = () => {
+    openChangePinForm(returnToCart);
+  };
+  document.getElementById('profile-close').onclick = () => {
+    if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
+  };
+}
+
+function changePinFormHtml(error){
+  return `
+    <h3>เปลี่ยนรหัสผ่าน</h3>
+    <div class="field">
+      <label>รหัสผ่านเดิม</label>
+      <input type="password" inputmode="numeric" id="cp-old" maxlength="6">
+    </div>
+    <div class="field">
+      <label>รหัสผ่านใหม่ (ตัวเลข 4-6 หลัก)</label>
+      <input type="password" inputmode="numeric" id="cp-new" maxlength="6">
+    </div>
+    <div class="field">
+      <label>ยืนยันรหัสผ่านใหม่</label>
+      <input type="password" inputmode="numeric" id="cp-confirm" maxlength="6">
+    </div>
+    <div class="member-error" id="cp-error">${error || ''}</div>
+    <button class="submit-btn" id="cp-submit">บันทึกรหัสผ่านใหม่</button>
+    <button class="member-skip" id="cp-cancel">ยกเลิก</button>
+  `;
+}
+
+function openChangePinForm(returnToCart){
+  const body = document.getElementById('sheet-body');
+  body.innerHTML = changePinFormHtml('');
+  document.getElementById('cp-cancel').onclick = () => renderMemberProfileSheet(returnToCart);
+  document.getElementById('cp-submit').onclick = async () => {
+    const oldPin = document.getElementById('cp-old').value.trim();
+    const newPin = document.getElementById('cp-new').value.trim();
+    const confirmPin = document.getElementById('cp-confirm').value.trim();
+    const errorEl = document.getElementById('cp-error');
+    if(newPin !== confirmPin){
+      errorEl.textContent = 'รหัสผ่านใหม่ทั้งสองช่องไม่ตรงกัน';
+      return;
+    }
+    const submitBtn = document.getElementById('cp-submit');
+    submitBtn.disabled = true;
+    const result = await changeMemberPin(memberRecord.phone, oldPin, newPin);
+    submitBtn.disabled = false;
+    if(result.error){
+      errorEl.textContent = result.error;
+      return;
+    }
+    memberRecord = result.member;
+    memberSession = {phone: memberRecord.phone, pin: memberRecord.pin};
+    saveMemberSession(memberRecord.phone, memberRecord.pin);
+    renderMemberProfileSheet(returnToCart);
+  };
+}
+
 document.getElementById('admin-link').onclick = openPinSheet;
 document.getElementById('back-to-order').onclick = showOrderView;
 document.getElementById('admin-tab-summary').onclick = () => switchAdminTab('summary');
 document.getElementById('admin-tab-accounting').onclick = () => switchAdminTab('accounting');
 document.getElementById('admin-tab-menu').onclick = () => switchAdminTab('menu');
+document.getElementById('admin-tab-members').onclick = () => switchAdminTab('members');
+
+document.getElementById('admin-pin-save-btn').onclick = async () => {
+  const oldPin = document.getElementById('admin-pin-old').value.trim();
+  const newPin = document.getElementById('admin-pin-new').value.trim();
+  const confirmPin = document.getElementById('admin-pin-confirm').value.trim();
+  const errEl = document.getElementById('admin-pin-error');
+  errEl.style.color = 'var(--berry)';
+  if(oldPin !== adminPin){
+    errEl.textContent = 'รหัสเดิมไม่ถูกต้อง';
+    return;
+  }
+  if(!/^[0-9]{4,8}$/.test(newPin)){
+    errEl.textContent = 'รหัสใหม่ต้องเป็นตัวเลข 4-8 หลัก';
+    return;
+  }
+  if(newPin !== confirmPin){
+    errEl.textContent = 'รหัสใหม่ทั้งสองช่องไม่ตรงกัน';
+    return;
+  }
+  await saveAdminPin(newPin);
+  document.getElementById('admin-pin-old').value = '';
+  document.getElementById('admin-pin-new').value = '';
+  document.getElementById('admin-pin-confirm').value = '';
+  errEl.style.color = 'var(--green)';
+  errEl.textContent = 'บันทึกรหัสหลังบ้านใหม่เรียบร้อยแล้ว';
+};
 
 function openPinSheet(){
   const body = document.getElementById('sheet-body');
@@ -827,7 +1487,7 @@ function openPinSheet(){
   const input = document.getElementById('pin-input');
   input.focus();
   const tryPin = () => {
-    if(input.value === ADMIN_PIN){
+    if(input.value === adminPin){
       closeSheet();
       showAdminView();
     } else {
@@ -858,12 +1518,15 @@ function switchAdminTab(tab){
   document.getElementById('admin-tab-summary').classList.toggle('active', tab === 'summary');
   document.getElementById('admin-tab-accounting').classList.toggle('active', tab === 'accounting');
   document.getElementById('admin-tab-menu').classList.toggle('active', tab === 'menu');
+  document.getElementById('admin-tab-members').classList.toggle('active', tab === 'members');
   document.getElementById('summary-panel').hidden = tab !== 'summary';
   document.getElementById('accounting-panel').hidden = tab !== 'accounting';
   document.getElementById('menu-panel').hidden = tab !== 'menu';
+  document.getElementById('members-panel').hidden = tab !== 'members';
   if(tab === 'summary') loadSummary();
   if(tab === 'accounting') loadAccounting();
   if(tab === 'menu') renderMenuPanel();
+  if(tab === 'members') loadMembersPanel();
 }
 
 document.getElementById('summary-date').value = todayStr();
@@ -877,7 +1540,7 @@ async function loadSummary(){
   const orders = (await fetchOrdersForDate(dateVal)).sort((a,b) => (a.ts||0) - (b.ts||0));
 
   document.getElementById('metric-count').textContent = orders.length;
-  const totalRevenue = orders.reduce((s,o) => s + (o.total||0), 0);
+  const totalRevenue = orders.reduce((s,o) => s + orderPayable(o), 0);
   document.getElementById('metric-total').textContent = fmtBaht(totalRevenue);
 
   const itemMap = {};
@@ -901,7 +1564,7 @@ async function loadSummary(){
     ? '<div class="empty-state">ยังไม่มีออเดอร์ในวันนี้</div>'
     : orders.map(o => `
         <div class="order-card">
-          <div class="oc-top"><span>${o.name}</span><span>${fmtBaht(o.total)}</span></div>
+          <div class="oc-top"><span>${o.name}${o.memberPhone ? ' 👤' : ''}${o.recurringGroupId ? ' 🔁' : ''}</span><span>${fmtBaht(orderPayable(o))}</span></div>
           <div class="oc-items">
             ${(o.items||[]).map((it, idx) => `
               <label class="oc-item-row">
@@ -909,6 +1572,8 @@ async function loadSummary(){
                 <span class="oc-item-text ${it.paid ? 'paid' : ''}">${orderItemLineHtml(it)}</span>
               </label>`).join('')}
           </div>
+          ${o.recurringGroupId ? `<div class="oc-note">🔁 ออเดอร์ล่วงหน้า ชำระเงินไว้ล่วงหน้าแล้ว</div>` : ''}
+          ${o.rewardApplied ? `<div class="oc-note">ใช้โปรโมชั่น: ${o.rewardApplied.name} (ลด ${fmtBaht(o.discount||0)})</div>` : ''}
           ${o.note ? `<div class="oc-note">หมายเหตุ: ${o.note}</div>` : ''}
           <div class="oc-time">${o.time} น.</div>
         </div>`).join('');
@@ -991,7 +1656,7 @@ async function loadAccounting(){
   const orders = await fetchOrdersForDate(dateVal);
   const expenses = await fetchExpensesForDate(dateVal);
 
-  const revenue = orders.reduce((s,o) => s + (o.total||0), 0);
+  const revenue = orders.reduce((s,o) => s + orderPayable(o), 0);
   const cogs = orders.reduce((s,o) => s + (o.items||[]).reduce((s2,it) => s2 + (it.cost||0) * it.qty, 0), 0);
   const otherExpenses = expenses.reduce((s,e) => s + (e.amount||0), 0);
   const netProfit = revenue - cogs - otherExpenses;
@@ -1044,7 +1709,7 @@ async function loadAccounting(){
 
 async function loadAllTimeAccounting(){
   const [allOrders, allExpenses] = await Promise.all([fetchAllOrders(), fetchAllExpenses()]);
-  const revenue = allOrders.reduce((s,o) => s + (o.total||0), 0);
+  const revenue = allOrders.reduce((s,o) => s + orderPayable(o), 0);
   const cogs = allOrders.reduce((s,o) => s + (o.items||[]).reduce((s2,it) => s2 + (it.cost||0) * it.qty, 0), 0);
   const otherExpenses = allExpenses.reduce((s,e) => s + (e.amount||0), 0);
   const netProfit = revenue - cogs - otherExpenses;
@@ -1056,6 +1721,180 @@ async function loadAllTimeAccounting(){
   el.textContent = fmtBaht(netProfit);
   el.style.color = netProfit < 0 ? 'var(--berry)' : 'var(--green)';
 }
+
+let allMembersCache = [];
+
+async function loadMembersPanel(){
+  document.getElementById('points-ratio-input').value = rewardsData.pointsPerBaht || 1;
+  renderRewardsList();
+  allMembersCache = (await fetchAllMembers()).sort((a,b) => (b.points||0) - (a.points||0));
+  document.getElementById('metric-member-count').textContent = allMembersCache.length;
+  document.getElementById('metric-member-points').textContent = allMembersCache.reduce((s,m) => s + (m.points||0), 0);
+  renderMembersList(allMembersCache);
+  await loadRecurringList();
+}
+
+async function fetchAllRecurring(){
+  try{
+    const list = await window.storage.list('recurring:', true);
+    if(!list || !list.keys) return [];
+    const results = await Promise.all(list.keys.map(k => window.storage.get(k, true).catch(() => null)));
+    return results.filter(Boolean).map(r => { try{ return JSON.parse(r.value); }catch(e){ return null; } }).filter(Boolean);
+  }catch(e){ return []; }
+}
+
+async function loadRecurringList(){
+  const recs = (await fetchAllRecurring()).sort((a,b) => (b.createdAt||0) - (a.createdAt||0));
+  const el = document.getElementById('recurring-list');
+  const today = todayStr();
+  el.innerHTML = recs.length === 0
+    ? '<div class="empty-state">ยังไม่มีออเดอร์ล่วงหน้า</div>'
+    : recs.map(r => {
+        const remaining = (r.orderKeys||[]).filter(o => o.date >= today).length;
+        return `
+        <div class="recur-row" data-recur-id="${r.id}">
+          <div class="rc-top"><span>${r.name}${r.memberPhone ? ' 👤' : ''}</span><span>${fmtBaht(r.totalPrice)}</span></div>
+          <div class="rc-sub">${r.itemsSummary}<br>ตั้งแต่ ${r.startDate} · ${(r.orderKeys||[]).length} วันทั้งหมด · เหลืออีก ${remaining} วัน</div>
+          ${remaining > 0 ? `<button class="cancel-recur" data-cancel-recur="${r.id}">ยกเลิกวันที่ยังไม่ถึง (${remaining} วัน)</button>` : ''}
+        </div>`;
+      }).join('');
+
+  document.querySelectorAll('[data-cancel-recur]').forEach(btn => {
+    btn.onclick = async () => {
+      if(!confirm('ยกเลิกวันที่ยังไม่ถึงของออเดอร์ล่วงหน้านี้ทั้งหมด?')) return;
+      await cancelRecurringOrder(btn.dataset.cancelRecur);
+      await loadRecurringList();
+    };
+  });
+}
+
+async function cancelRecurringOrder(recurringId){
+  try{
+    const res = await window.storage.get('recurring:' + recurringId, true);
+    const rec = JSON.parse(res.value);
+    const today = todayStr();
+    const toCancel = (rec.orderKeys||[]).filter(o => o.date >= today);
+    const toKeep = (rec.orderKeys||[]).filter(o => o.date < today);
+    await Promise.all(toCancel.map(o => window.storage.delete(o.key, true).catch(() => null)));
+    if(toKeep.length === 0){
+      await window.storage.delete('recurring:' + recurringId, true);
+    } else {
+      rec.orderKeys = toKeep;
+      rec.totalPrice = rec.pricePerDay * toKeep.length;
+      await window.storage.set('recurring:' + recurringId, JSON.stringify(rec), true);
+    }
+  }catch(e){}
+}
+
+document.getElementById('save-points-ratio-btn').onclick = async () => {
+  const val = Number(document.getElementById('points-ratio-input').value);
+  rewardsData.pointsPerBaht = val > 0 ? val : 1;
+  await saveRewards();
+};
+
+document.getElementById('member-search').oninput = () => {
+  const q = document.getElementById('member-search').value.trim().toLowerCase();
+  const filtered = q ? allMembersCache.filter(m => (m.phone||'').includes(q) || (m.name||'').toLowerCase().includes(q)) : allMembersCache;
+  renderMembersList(filtered);
+};
+
+function renderMembersList(list){
+  const el = document.getElementById('members-list');
+  el.innerHTML = list.length === 0
+    ? '<div class="empty-state">ยังไม่มีสมาชิก</div>'
+    : list.map(m => `
+      <div class="member-row" data-phone="${m.phone}">
+        <div class="mr-top"><span>${m.name}</span><span>${m.points} แต้ม</span></div>
+        <div class="mr-sub"><span>${m.phone}</span><span>ยอดซื้อสะสม ${fmtBaht(m.totalSpent||0)} · ${m.orderCount||0} ออเดอร์</span></div>
+        <div class="mr-pin-row">
+          <span>รหัสผ่าน: <span class="mr-pin-val" data-pin-val="${m.phone}" data-pin="${(m.pin||'').replace(/"/g,'&quot;')}">••••••</span></span>
+          <button class="mr-pin-toggle" data-pin-toggle="${m.phone}">แสดงรหัส</button>
+        </div>
+        <div class="mr-adjust">
+          <input type="number" placeholder="+/- แต้ม" data-adjust-input="${m.phone}">
+          <button data-adjust-btn="${m.phone}">ปรับแต้ม</button>
+        </div>
+      </div>`).join('');
+  document.querySelectorAll('[data-pin-toggle]').forEach(btn => {
+    btn.onclick = () => {
+      const phone = btn.dataset.pinToggle;
+      const span = document.querySelector(`[data-pin-val="${phone}"]`);
+      const showing = !span.textContent.includes('•');
+      if(showing){
+        span.textContent = '••••••';
+        btn.textContent = 'แสดงรหัส';
+      } else {
+        span.textContent = span.dataset.pin || '-';
+        btn.textContent = 'ซ่อนรหัส';
+      }
+    };
+  });
+  document.querySelectorAll('[data-adjust-btn]').forEach(btn => {
+    btn.onclick = async () => {
+      const phone = btn.dataset.adjustBtn;
+      const input = document.querySelector(`[data-adjust-input="${phone}"]`);
+      const delta = Number(input.value);
+      if(!delta) return;
+      const m = allMembersCache.find(x => x.phone === phone);
+      if(!m) return;
+      m.points = Math.max(0, (m.points||0) + delta);
+      await saveMemberRecord(m);
+      if(memberRecord && memberRecord.phone === phone){ memberRecord.points = m.points; updateMemberLinkLabel(); }
+      loadMembersPanel();
+    };
+  });
+}
+
+function renderRewardsList(){
+  const el = document.getElementById('rewards-list');
+  const rewards = rewardsData.rewards || [];
+  el.innerHTML = rewards.length === 0
+    ? '<div class="empty-state">ยังไม่มีโปรโมชั่น</div>'
+    : rewards.map(r => `
+      <div class="reward-row" data-reward-id="${r.id}">
+        <div class="rr-1">
+          <input class="rr-name" data-r-field="name" value="${r.name.replace(/"/g,'&quot;')}" placeholder="ชื่อโปรโมชั่น เช่น ส่วนลด 20 บาท">
+          <button class="icon-btn" data-del-reward="${r.id}">ลบ</button>
+        </div>
+        <div class="rr-2">
+          <span class="small-lbl">ใช้แต้ม</span>
+          <input type="number" class="rr-cost" data-r-field="pointsCost" value="${r.pointsCost}">
+          <select data-r-field="type">
+            <option value="baht" ${r.type === 'baht' ? 'selected' : ''}>ลดเป็นบาท</option>
+            <option value="percent" ${r.type === 'percent' ? 'selected' : ''}>ลดเป็น %</option>
+          </select>
+          <input type="number" class="rr-value" data-r-field="value" value="${r.value}">
+          <label style="display:flex;align-items:center;gap:4px;font-size:12.5px;color:var(--cream-dim);">
+            <input type="checkbox" data-r-field="active" ${r.active !== false ? 'checked' : ''}> เปิดใช้งาน
+          </label>
+        </div>
+      </div>`).join('');
+
+  document.querySelectorAll('.reward-row').forEach(row => {
+    const id = row.dataset.rewardId;
+    const reward = rewardsData.rewards.find(r => r.id === id);
+    row.querySelectorAll('[data-r-field]').forEach(input => {
+      input.onchange = async (e) => {
+        const field = input.dataset.rField;
+        if(field === 'pointsCost' || field === 'value') reward[field] = Number(e.target.value) || 0;
+        else if(field === 'active') reward.active = e.target.checked;
+        else reward[field] = e.target.value;
+        await saveRewards();
+      };
+    });
+    row.querySelector('[data-del-reward]').onclick = async () => {
+      rewardsData.rewards = rewardsData.rewards.filter(r => r.id !== id);
+      await saveRewards();
+      renderRewardsList();
+    };
+  });
+}
+
+document.getElementById('add-reward-btn').onclick = async () => {
+  rewardsData.rewards.push({id:newId('reward'), name:'โปรโมชั่นใหม่', pointsCost:50, type:'baht', value:20, active:true});
+  await saveRewards();
+  renderRewardsList();
+};
 
 function sweetnessManageHtml(){
   const rows = menuData.sweetnessLevels.map(lvl => `
@@ -1104,6 +1943,8 @@ function categoryAdminHtml(cat){
         <input type="number" step="1" data-field="cost" value="${it.cost || 0}">
         <span class="small-lbl">โควต้า/วัน</span>
         <input type="number" min="0" data-field="quota" placeholder="ไม่จำกัด" value="${it.quota != null ? it.quota : ''}">
+        <span class="small-lbl">แต้มที่ได้/แก้ว</span>
+        <input type="number" min="0" step="1" data-field="points" placeholder="อัตโนมัติ" value="${it.points != null ? it.points : ''}">
       </div>
       <div class="row-3">
         <input data-field="description" placeholder="รายละเอียดที่ลูกค้าจะเห็น (ถ้ามี)" value="${(it.description||'').replace(/"/g,'&quot;')}">
@@ -1185,7 +2026,7 @@ function attachMenuPanelHandlers(){
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
     card.querySelector('[data-add-item]').onclick = () => {
-      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, recipe:{}});
+      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, points:null, recipe:{}});
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
 
@@ -1197,6 +2038,7 @@ function attachMenuPanelHandlers(){
           const field = input.dataset.field;
           if(field === 'price' || field === 'cost'){ item[field] = Number(e.target.value) || 0; }
           else if(field === 'quota'){ item.quota = e.target.value === '' ? null : Number(e.target.value); }
+          else if(field === 'points'){ item.points = e.target.value === '' ? null : Number(e.target.value); }
           else { item[field] = e.target.value; }
           saveMenu(); renderOrderView();
         };
@@ -1236,7 +2078,11 @@ function updateClock(){
 }
 
 async function init(){
+  await loadAdminPin();
   await loadMenu();
+  await loadRewards();
+  await refreshMemberRecord();
+  updateMemberLinkLabel();
   renderOrderView();
   renderCartBar();
   await loadTodayOrders();
