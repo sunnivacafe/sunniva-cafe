@@ -1612,14 +1612,15 @@ function renderCartSheetBody(){
     ${recurringBoxHtml()}
     ${paymentMethodBoxHtml(amountToPay)}
     ${checkoutMemberBoxHtml()}
+    ${!memberRecord ? `
     <div class="field">
       <label>ชื่อผู้สั่ง *</label>
-      <input type="text" id="order-name" value="${memberRecord ? memberRecord.name.replace(/"/g,'&quot;') : ''}" placeholder="ชื่อ หรือ ชื่อเล่น">
+      <input type="text" id="order-name" value="" placeholder="ชื่อ หรือ ชื่อเล่น">
     </div>
     <div class="field">
       <label>เบอร์โทร / ไลน์ (ถ้ามี)</label>
-      <input type="text" id="order-contact" value="${memberRecord ? memberRecord.phone : ''}" placeholder="สำหรับติดต่อกลับ">
-    </div>
+      <input type="text" id="order-contact" value="" placeholder="สำหรับติดต่อกลับ">
+    </div>` : ''}
     <div class="field">
       <label>หมายเหตุ (ถ้ามี)</label>
       <textarea id="order-note" placeholder="เช่น ไม่ใส่วิปครีม, หวานน้อย"></textarea>
@@ -1679,13 +1680,19 @@ function renderCartSheetBody(){
 
 async function submitOrder(){
   const nameInput = document.getElementById('order-name');
-  const name = nameInput.value.trim();
-  if(!name){
-    nameInput.style.borderColor = 'var(--berry)';
-    nameInput.focus();
-    return;
+  let name, contact;
+  if(nameInput){
+    name = nameInput.value.trim();
+    if(!name){
+      nameInput.style.borderColor = 'var(--berry)';
+      nameInput.focus();
+      return;
+    }
+    contact = document.getElementById('order-contact').value.trim();
+  } else {
+    name = memberRecord.name;
+    contact = memberRecord.phone;
   }
-  const contact = document.getElementById('order-contact').value.trim();
   const note = document.getElementById('order-note').value.trim();
   const btn = document.getElementById('submit-order');
   btn.disabled = true;
@@ -1761,13 +1768,19 @@ async function submitOrder(){
 
 async function submitRecurringOrder(){
   const nameInput = document.getElementById('order-name');
-  const name = nameInput.value.trim();
-  if(!name){
-    nameInput.style.borderColor = 'var(--berry)';
-    nameInput.focus();
-    return;
+  let name, contact;
+  if(nameInput){
+    name = nameInput.value.trim();
+    if(!name){
+      nameInput.style.borderColor = 'var(--berry)';
+      nameInput.focus();
+      return;
+    }
+    contact = document.getElementById('order-contact').value.trim();
+  } else {
+    name = memberRecord.name;
+    contact = memberRecord.phone;
   }
-  const contact = document.getElementById('order-contact').value.trim();
   const note = document.getElementById('order-note').value.trim();
   const startDate = recurringStartDate || todayStr();
   const dates = computeRecurringDates(startDate, recurringWeekdays, recurringWeeks);
@@ -1959,17 +1972,17 @@ function renderMemberProfileSheet(returnToCart){
       }).join('')}
       <p class="card-note" id="profile-reward-note" style="margin-top:8px;"></p>`
       : `<p class="card-note">ยังไม่มีโปรโมชั่นให้แลกในตอนนี้</p>`}
-    <button class="submit-btn" id="profile-order-history" style="margin-top:16px;background:var(--surface-2);color:var(--cream);">ประวัติการสั่งซื้อ</button>
-    <button class="submit-btn" id="profile-change-pin" style="margin-top:8px;background:var(--surface-2);color:var(--cream);">เปลี่ยนรหัสผ่าน</button>
-    <button class="submit-btn" id="profile-close" style="margin-top:8px;">ปิดหน้าต่าง</button>
+    <h2 class="section-title" style="margin-top:16px;">ประวัติการสั่งซื้อ</h2>
+    <div id="order-history-list"><div class="empty-cart">กำลังโหลด...</div></div>
+    <div style="text-align:right;margin-top:2px;">
+      <button class="admin-link" id="profile-change-pin">เปลี่ยนรหัสผ่าน</button>
+    </div>
+    <button class="submit-btn" id="profile-close" style="margin-top:10px;">ปิดหน้าต่าง</button>
   `;
   document.getElementById('overlay').classList.remove('hidden');
   document.getElementById('profile-logout').onclick = () => {
     memberLogout();
     if(returnToCart){ renderCartSheetBody(); } else { closeSheet(); }
-  };
-  document.getElementById('profile-order-history').onclick = () => {
-    openOrderHistorySheet(returnToCart);
   };
   document.getElementById('profile-change-pin').onclick = () => {
     openChangePinForm(returnToCart);
@@ -1995,6 +2008,12 @@ function renderMemberProfileSheet(returnToCart){
       renderMemberProfileSheet(returnToCart);
     };
   });
+
+  const phoneAtRequest = memberRecord.phone;
+  fetchMemberOrders(phoneAtRequest).then(orders => {
+    if(!memberRecord || memberRecord.phone !== phoneAtRequest) return; // navigated away
+    renderOrderHistoryList(orders, returnToCart);
+  });
 }
 
 async function fetchMemberOrders(phone){
@@ -2007,29 +2026,35 @@ function customerOrderItemLineHtml(it){
   return `${it.name}${sweetPart} x${it.qty}`;
 }
 
-async function openOrderHistorySheet(returnToCart){
-  const body = document.getElementById('sheet-body');
-  body.innerHTML = `
-    <h3>ประวัติการสั่งซื้อ</h3>
-    <div id="order-history-list"><div class="empty-cart">กำลังโหลด...</div></div>
-    <button class="member-skip" id="oh-back">&larr; กลับ</button>
-  `;
-  document.getElementById('overlay').classList.remove('hidden');
-  document.getElementById('oh-back').onclick = () => renderMemberProfileSheet(returnToCart);
-
-  const orders = await fetchMemberOrders(memberRecord.phone);
+function renderOrderHistoryList(orders, returnToCart){
   const listEl = document.getElementById('order-history-list');
   if(!listEl) return; // sheet closed/navigated away while loading
+  const today = todayStr();
   listEl.innerHTML = orders.length === 0
     ? '<div class="empty-cart">ยังไม่มีประวัติการสั่งซื้อ</div>'
     : orders.map(o => `
       <div class="order-card">
         <div class="oc-top"><span>${o.date}${o.recurringGroupId ? ' 🔁' : ''} ${paymentBadgeHtml(o)}</span><span>${fmtBaht(orderPayable(o))}</span></div>
-        </div>
+        <div class="oc-items">${(o.items||[]).map(it => `<div>${customerOrderItemLineHtml(it)}</div>`).join('')}</div>
         ${o.rewardApplied ? `<div class="oc-note">ใช้โปรโมชั่น: ${o.rewardApplied.name} (ลด ${fmtBaht(o.discount||0)})</div>` : ''}
         ${o.pointsEarned ? `<div class="oc-note">ได้รับ ${o.pointsEarned} แต้ม</div>` : ''}
-        <div class="oc-time">${o.time} น.</div>
+        <div class="oc-footer">
+          <div class="oc-time">${o.time} น.</div>
+          ${o.date === today ? `<button class="cancel-order-btn" data-self-cancel-order="${o.key}">ยกเลิกออเดอร์</button>` : ''}
+        </div>
       </div>`).join('');
+
+  document.querySelectorAll('[data-self-cancel-order]').forEach(btn => {
+    const key = btn.dataset.selfCancelOrder;
+    const order = orders.find(o => o.key === key);
+    if(!order) return;
+    inlineConfirm(btn, 'ยืนยันยกเลิก?', async () => {
+      btn.disabled = true;
+      btn.textContent = 'กำลังยกเลิก...';
+      await cancelOrder(order);
+      renderMemberProfileSheet(returnToCart);
+    });
+  });
 }
 
 function changePinFormHtml(error){
