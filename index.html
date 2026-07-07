@@ -69,6 +69,16 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
   border-radius:8px;padding:7px 8px;font-family:var(--font-body);font-size:12.5px;}
 .sweet-lbl{font-size:11px;color:var(--cream-dim);margin-bottom:2px;display:block;}
 
+.topping-box{background:var(--surface-2);border-radius:9px;padding:8px 10px;display:flex;flex-direction:column;gap:5px;}
+.intensity-box{background:var(--surface-2);border-radius:9px;padding:9px 10px 6px;display:flex;flex-direction:column;gap:4px;}
+.intensity-slider{width:100%;accent-color:var(--berry);height:18px;cursor:pointer;}
+.intensity-ticks{display:flex;justify-content:space-between;font-size:10px;color:var(--cream-dim);padding:0 2px;}
+.topping-opt{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--cream);cursor:pointer;}
+.topping-opt input,.admin-item-row .topping-opt input{accent-color:var(--gold-dark);width:15px !important;height:15px !important;
+  flex:0 0 auto;padding:0 !important;margin:0;border:none !important;background:none !important;border-radius:0 !important;}
+.topping-assign-list{display:flex;flex-direction:column;gap:6px;background:var(--surface-2);border-radius:9px;padding:8px 10px;}
+.item-toppings-block{display:flex;flex-direction:column;gap:6px;}
+
 .stepper{display:flex;align-items:center;justify-content:space-between;background:var(--surface-2);
   border-radius:10px;padding:4px;margin-top:2px;}
 .stepper button{width:30px;height:30px;border-radius:8px;border:none;background:transparent;color:var(--cream);
@@ -659,21 +669,30 @@ const DEFAULT_MENU = {
     {id:'sw4', label:'หวาน 30%'},
     {id:'sw5', label:'ไม่หวาน'}
   ],
+  toppings: [
+    {id:'top1', name:'เพิ่มช็อตกาแฟ', price:5}
+  ],
+  intensityLevels: [
+    {id:'in1', label:'อ่อน'},
+    {id:'in2', label:'กลาง'},
+    {id:'in3', label:'เข้ม'},
+    {id:'in4', label:'เข้มมาก'}
+  ],
   categories: [
     {id:'cat_coffle', name:'เมนูคอฟเฟิล', allowCombo:true, comboPrice:75},
     {id:'cat_drink', name:'เมนูน้ำชา กาแฟ', allowCombo:false, comboPrice:0}
   ],
   items: [
-    {id:'c1', categoryId:'cat_coffle', name:'ธรรมดา (น้ำตาลคาราเมล + ไอซิ่ง)', price:25, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'c2', categoryId:'cat_coffle', name:'วิปครีม + สตรอว์เบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'c3', categoryId:'cat_coffle', name:'วิปครีม + บลูเบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'c4', categoryId:'cat_coffle', name:'สเต็กไก่ + ชีส', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'d1', categoryId:'cat_drink', name:'ลาเต้เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[]},
-    {id:'d2', categoryId:'cat_drink', name:'คาปูชิโน่เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[]},
-    {id:'d3', categoryId:'cat_drink', name:'ชาไทย', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'d4', categoryId:'cat_drink', name:'ชาเขียว', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'d5', categoryId:'cat_drink', name:'สตรอว์เบอร์รี่นมสด', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]},
-    {id:'d6', categoryId:'cat_drink', name:'นมสดโอรีโอ้', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[]}
+    {id:'c1', categoryId:'cat_coffle', name:'ธรรมดา (น้ำตาลคาราเมล + ไอซิ่ง)', price:25, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'c2', categoryId:'cat_coffle', name:'วิปครีม + สตรอว์เบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'c3', categoryId:'cat_coffle', name:'วิปครีม + บลูเบอร์รี่', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'c4', categoryId:'cat_coffle', name:'สเต็กไก่ + ชีส', price:39, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'d1', categoryId:'cat_drink', name:'ลาเต้เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[], toppingIds:['top1'], allowIntensity:true},
+    {id:'d2', categoryId:'cat_drink', name:'คาปูชิโน่เย็น', price:40, cost:0, description:'โควต้าจำกัด', quota:3, recipe:{}, ingredientRecipe:[], toppingIds:['top1'], allowIntensity:true},
+    {id:'d3', categoryId:'cat_drink', name:'ชาไทย', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'d4', categoryId:'cat_drink', name:'ชาเขียว', price:35, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'d5', categoryId:'cat_drink', name:'สตรอว์เบอร์รี่นมสด', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false},
+    {id:'d6', categoryId:'cat_drink', name:'นมสดโอรีโอ้', price:40, cost:0, description:'', quota:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false}
   ]
 };
 
@@ -683,6 +702,8 @@ let cart = [];
 let todayOrders = [];
 let quotaUsed = {};
 let selectedSweetness = {};
+let selectedToppings = {};
+let selectedIntensity = {};
 let selectedCombo = {};
 
 const DEFAULT_REWARDS = { pointsPerBaht: 1, rewards: [] };
@@ -1140,12 +1161,44 @@ function ensureValidSweetness(){
   });
 }
 
+function ensureValidToppings(){
+  if(!Array.isArray(menuData.toppings)) menuData.toppings = [];
+  const validTopIds = new Set(menuData.toppings.map(t => t.id));
+  menuData.items.forEach(i => {
+    if(!Array.isArray(i.toppingIds)) i.toppingIds = [];
+    i.toppingIds = i.toppingIds.filter(id => validTopIds.has(id));
+  });
+  Object.keys(selectedToppings).forEach(itemId => {
+    if(!Array.isArray(selectedToppings[itemId])) { selectedToppings[itemId] = []; return; }
+    selectedToppings[itemId] = selectedToppings[itemId].filter(id => validTopIds.has(id));
+  });
+}
+
+function ensureValidIntensity(){
+  if(!Array.isArray(menuData.intensityLevels) || menuData.intensityLevels.length === 0){
+    menuData.intensityLevels = [{id:newId('in'), label:'ปกติ'}];
+  }
+  const validIds = new Set(menuData.intensityLevels.map(l => l.id));
+  Object.keys(selectedIntensity).forEach(itemId => {
+    if(!validIds.has(selectedIntensity[itemId])){
+      delete selectedIntensity[itemId];
+    }
+  });
+}
+
 function rebuildItemsById(){
   itemsById = {};
   ensureValidSweetness();
+  ensureValidToppings();
+  ensureValidIntensity();
   menuData.items.forEach(i => {
     itemsById[i.id] = i;
     if(!(i.id in selectedSweetness)) selectedSweetness[i.id] = menuData.sweetnessLevels[0].id;
+    if(!(i.id in selectedToppings)) selectedToppings[i.id] = [];
+    if(i.allowIntensity && !(i.id in selectedIntensity)){
+      const levels = menuData.intensityLevels;
+      selectedIntensity[i.id] = levels[Math.floor((levels.length - 1) / 2)].id;
+    }
   });
 }
 rebuildItemsById();
@@ -1192,6 +1245,10 @@ async function loadMenu(){
       if(!Array.isArray(menuData.sweetnessLevels) || menuData.sweetnessLevels.length === 0){
         menuData.sweetnessLevels = JSON.parse(JSON.stringify(DEFAULT_MENU.sweetnessLevels));
       }
+      if(!Array.isArray(menuData.toppings)) menuData.toppings = [];
+      if(!Array.isArray(menuData.intensityLevels) || menuData.intensityLevels.length === 0){
+        menuData.intensityLevels = JSON.parse(JSON.stringify(DEFAULT_MENU.intensityLevels));
+      }
       menuData.items.forEach(i => {
         if(i.cost == null) i.cost = 0;
         if(i.recipe == null || typeof i.recipe === 'string'){
@@ -1202,6 +1259,8 @@ async function loadMenu(){
           }
         }
         if(!Array.isArray(i.ingredientRecipe)) i.ingredientRecipe = [];
+        if(!Array.isArray(i.toppingIds)) i.toppingIds = [];
+        if(typeof i.allowIntensity !== 'boolean') i.allowIntensity = false;
       });
     } else {
       await saveMenu();
@@ -1287,8 +1346,8 @@ function cartItemTotalQty(id){
   return cart.filter(l => l.id === id).reduce((s,l) => s + l.qty, 0);
 }
 
-function cartLineQty(id, sweetId){
-  const line = cart.find(l => l.id === id && l.sweetId === sweetId);
+function cartLineQty(id, sweetId, toppingsKey, intensityId){
+  const line = cart.find(l => l.id === id && l.sweetId === sweetId && (l.toppingsKey||'') === (toppingsKey||'') && (l.intensityId||'') === (intensityId||''));
   return line ? line.qty : 0;
 }
 
@@ -1301,6 +1360,26 @@ function quotaRemaining(item){
 
 function itemsInCategory(catId){
   return menuData.items.filter(i => i.categoryId === catId);
+}
+
+function toppingById(id){
+  return (menuData.toppings || []).find(t => t.id === id);
+}
+function availableToppingsForItem(item){
+  return (item.toppingIds || []).map(toppingById).filter(Boolean);
+}
+function selectedToppingObjsForItem(itemId){
+  const ids = selectedToppings[itemId] || [];
+  return ids.map(toppingById).filter(Boolean);
+}
+function toppingsPriceSum(toppingObjs){
+  return toppingObjs.reduce((s, t) => s + (Number(t.price) || 0), 0);
+}
+function toppingsKeyOf(toppingObjs){
+  return toppingObjs.map(t => t.id).sort().join(',');
+}
+function toppingsLabelOf(toppingObjs){
+  return toppingObjs.map(t => t.name).join(', ');
 }
 
 function renderOrderView(){
@@ -1322,7 +1401,13 @@ function renderOrderView(){
 
 function itemCardHtml(item){
   const sweetId = selectedSweetness[item.id] || (menuData.sweetnessLevels[0] && menuData.sweetnessLevels[0].id);
-  const qty = cartLineQty(item.id, sweetId);
+  const availToppings = availableToppingsForItem(item);
+  const selToppings = selectedToppingObjsForItem(item.id);
+  const toppingsKey = toppingsKeyOf(selToppings);
+  const unitPrice = item.price + toppingsPriceSum(selToppings);
+  const hasIntensity = item.allowIntensity && menuData.intensityLevels && menuData.intensityLevels.length > 0;
+  const intensityId = hasIntensity ? (selectedIntensity[item.id] || menuData.intensityLevels[0].id) : '';
+  const qty = cartLineQty(item.id, sweetId, toppingsKey, intensityId);
   const remaining = quotaRemaining(item);
   const isOut = item.quota && remaining <= 0;
   const badge = item.quota
@@ -1330,16 +1415,39 @@ function itemCardHtml(item){
     : '';
   const desc = item.description ? `<div class="item-desc">${item.description}</div>` : '';
   const sweetOpts = menuData.sweetnessLevels.map(lvl => `<option value="${lvl.id}" ${lvl.id === sweetId ? 'selected' : ''}>${lvl.label}</option>`).join('');
+  const selToppingIds = new Set(selectedToppings[item.id] || []);
+  const toppingsHtml = availToppings.length > 0 ? `
+    <div class="topping-box">
+      <span class="sweet-lbl">ท็อปปิ้งเพิ่มเติม</span>
+      ${availToppings.map(t => `
+        <label class="topping-opt">
+          <input type="checkbox" data-topping-for="${item.id}" data-topping-id="${t.id}" ${selToppingIds.has(t.id) ? 'checked' : ''}>
+          <span>${t.name} (+${fmtBaht(t.price)})</span>
+        </label>`).join('')}
+    </div>` : '';
+  const intensityHtml = hasIntensity ? (() => {
+    const levels = menuData.intensityLevels;
+    const idx = Math.max(0, levels.findIndex(l => l.id === intensityId));
+    const curLabel = levels[idx] ? levels[idx].label : '';
+    return `
+    <div class="intensity-box">
+      <span class="sweet-lbl">ความเข้มของกาแฟ · <b>${curLabel}</b></span>
+      <input type="range" class="intensity-slider" data-intensity-for="${item.id}" min="0" max="${levels.length - 1}" step="1" value="${idx}">
+      <div class="intensity-ticks">${levels.map(l => `<span>${l.label}</span>`).join('')}</div>
+    </div>`;
+  })() : '';
   return `
   <div class="item-card">
     ${badge}
     <div class="item-name">${item.name}</div>
     ${desc}
-    <div class="item-price">${fmtBaht(item.price)}</div>
+    <div class="item-price">${fmtBaht(unitPrice)}</div>
     <div>
       <span class="sweet-lbl">ระดับความหวาน</span>
       <select class="sweet-select" data-sweet-for="${item.id}">${sweetOpts}</select>
     </div>
+    ${intensityHtml}
+    ${toppingsHtml}
     <div class="stepper">
       <button data-minus="${item.id}" ${qty === 0 ? 'disabled' : ''}>-</button>
       <span class="qty">${qty}</span>
@@ -1400,6 +1508,27 @@ function attachOrderViewHandlers(){
       renderOrderView();
     };
   });
+  document.querySelectorAll('[data-topping-for]').forEach(cb => {
+    cb.onchange = () => {
+      const itemId = cb.dataset.toppingFor;
+      const topId = cb.dataset.toppingId;
+      if(!Array.isArray(selectedToppings[itemId])) selectedToppings[itemId] = [];
+      const list = selectedToppings[itemId];
+      const idx = list.indexOf(topId);
+      if(cb.checked){ if(idx === -1) list.push(topId); }
+      else { if(idx !== -1) list.splice(idx, 1); }
+      renderOrderView();
+    };
+  });
+  document.querySelectorAll('[data-intensity-for]').forEach(slider => {
+    slider.onchange = () => {
+      const itemId = slider.dataset.intensityFor;
+      const levels = menuData.intensityLevels || [];
+      const lvl = levels[Number(slider.value)];
+      if(lvl) selectedIntensity[itemId] = lvl.id;
+      renderOrderView();
+    };
+  });
   document.querySelectorAll('[data-combo-select]').forEach(sel => {
     sel.onchange = () => {
       const catId = sel.dataset.comboSelect;
@@ -1422,10 +1551,24 @@ function changeQty(id, delta){
   if(!item) return;
   const sweetId = selectedSweetness[id] || (menuData.sweetnessLevels[0] && menuData.sweetnessLevels[0].id);
   const level = menuData.sweetnessLevels.find(l => l.id === sweetId);
-  let line = cart.find(l => l.id === id && l.sweetId === sweetId);
+  const selToppings = selectedToppingObjsForItem(id);
+  const toppingsKey = toppingsKeyOf(selToppings);
+  const hasIntensity = item.allowIntensity && menuData.intensityLevels && menuData.intensityLevels.length > 0;
+  const intensityId = hasIntensity ? (selectedIntensity[id] || menuData.intensityLevels[0].id) : '';
+  const intensityLvl = hasIntensity ? menuData.intensityLevels.find(l => l.id === intensityId) : null;
+  let line = cart.find(l => l.id === id && l.sweetId === sweetId && (l.toppingsKey||'') === toppingsKey && (l.intensityId||'') === intensityId);
   if(delta > 0){
     if(item.quota && quotaRemaining(item) <= 0) return;
-    if(line){ line.qty += 1; } else { cart.push({id:item.id, name:item.name, price:item.price, cost:item.cost||0, qty:1, sweet: level ? level.label : '', sweetId}); }
+    if(line){ line.qty += 1; } else {
+      const unitPrice = item.price + toppingsPriceSum(selToppings);
+      cart.push({
+        id:item.id, name:item.name, price:unitPrice, cost:item.cost||0, qty:1,
+        sweet: level ? level.label : '', sweetId,
+        toppings: selToppings.map(t => ({id:t.id, name:t.name, price:t.price})),
+        toppingsKey, toppingsLabel: toppingsLabelOf(selToppings),
+        intensityId, intensity: intensityLvl ? intensityLvl.label : ''
+      });
+    }
   } else {
     if(line){
       line.qty -= 1;
@@ -1585,7 +1728,7 @@ function renderCartSheetBody(){
   }
   const lines = cart.map((l, idx) => `
     <div class="cart-line">
-      <div class="cl-name">${l.name}${l.sweet ? ' <span style="color:var(--cream-dim);">(' + l.sweet + ')</span>' : ''} <span class="cl-price">x${l.qty}</span></div>
+      <div class="cl-name">${l.name}${l.sweet ? ' <span style="color:var(--cream-dim);">(' + l.sweet + ')</span>' : ''}${l.intensity ? ' <span style="color:var(--cream-dim);">[' + l.intensity + ']</span>' : ''}${l.toppingsLabel ? ' <span style="color:var(--gold-dark);">+ ' + l.toppingsLabel + '</span>' : ''} <span class="cl-price">x${l.qty}</span></div>
       <div style="display:flex;align-items:center;gap:10px;">
         <span class="cl-price">${fmtBaht(l.price * l.qty)}</span>
         <button class="remove" data-remove-idx="${idx}">ลบ</button>
@@ -1710,7 +1853,7 @@ async function submitOrder(){
   const paymentStatus = paymentMethod === 'transfer' ? 'pending_verify' : 'paid';
   const order = {
     name, contact, note,
-    items: cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, paid:false})),
+    items: cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, toppings:l.toppings||[], toppingsLabel:l.toppingsLabel||null, intensity:l.intensity||null, intensityId:l.intensityId||null, paid:false})),
     total: subtotal,
     discount, payable,
     date: todayStr(),
@@ -1790,7 +1933,7 @@ async function submitRecurringOrder(){
   btn.disabled = true;
   btn.textContent = 'กำลังบันทึกออเดอร์ล่วงหน้า...';
 
-  const perDayItems = cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, paid:true}));
+  const perDayItems = cart.map(l => ({id:l.id, name:l.name, price:l.price, cost:l.cost||0, qty:l.qty, sweet:l.sweet||null, sweetId:l.sweetId||null, toppings:l.toppings||[], toppingsLabel:l.toppingsLabel||null, intensity:l.intensity||null, intensityId:l.intensityId||null, paid:true}));
   const perDaySubtotal = cartTotal();
   const perDayPoints = memberRecord ? cartPointsTotal(cart) : 0;
   const recurringId = newId('recur');
@@ -1817,7 +1960,7 @@ async function submitRecurringOrder(){
 
     const recurringRecord = {
       id: recurringId, name, contact, memberPhone: memberRecord ? memberRecord.phone : null,
-      itemsSummary: cart.map(l => `${l.name}${l.sweet ? '('+l.sweet+')' : ''} x${l.qty}`).join(', '),
+      itemsSummary: cart.map(l => `${l.name}${l.sweet ? '('+l.sweet+')' : ''}${l.intensity ? ' ['+l.intensity+']' : ''}${l.toppingsLabel ? ' +'+l.toppingsLabel : ''} x${l.qty}`).join(', '),
       pricePerDay: perDaySubtotal, totalPrice: perDaySubtotal * dates.length,
       startDate, weeksCount: recurringWeeks, weekdays: Array.from(recurringWeekdays),
       orderKeys, createdAt: Date.now(),
@@ -2023,7 +2166,9 @@ async function fetchMemberOrders(phone){
 
 function customerOrderItemLineHtml(it){
   const sweetPart = it.sweet ? ' (' + it.sweet + ')' : '';
-  return `${it.name}${sweetPart} x${it.qty}`;
+  const intensityPart = it.intensity ? ' [' + it.intensity + ']' : '';
+  const toppingsPart = it.toppingsLabel ? ' + ' + it.toppingsLabel : '';
+  return `${it.name}${sweetPart}${intensityPart}${toppingsPart} x${it.qty}`;
 }
 
 function renderOrderHistoryList(orders, returnToCart){
@@ -2388,11 +2533,13 @@ function findRecipeForItem(menuItem, orderItem){
 function orderItemLineHtml(it){
   const menuItem = itemsById[it.id];
   const sweetPart = it.sweet ? ' (' + it.sweet + ')' : '';
+  const intensityPart = it.intensity ? ' [' + it.intensity + ']' : '';
+  const toppingsPart = it.toppingsLabel ? ' + ' + it.toppingsLabel : '';
   const recipe = findRecipeForItem(menuItem, it);
   const recipePart = recipe
     ? ' <span style="color:var(--gold-dark);font-style:italic;">[สูตร: ' + recipe + ']</span>'
     : '';
-  return `${it.name}${sweetPart} x${it.qty}${recipePart}`;
+  return `${it.name}${sweetPart}${intensityPart}${toppingsPart} x${it.qty}${recipePart}`;
 }
 
 async function fetchExpensesForDate(dateVal){
@@ -2889,9 +3036,43 @@ function sweetnessManageHtml(){
   </div>`;
 }
 
+function toppingsManageHtml(){
+  const rows = (menuData.toppings || []).map(t => `
+    <div class="sweetness-row" data-top-id="${t.id}">
+      <input type="text" data-top-field="name" placeholder="ชื่อท็อปปิ้ง" value="${t.name.replace(/"/g,'&quot;')}">
+      <input type="number" step="1" data-top-field="price" placeholder="ราคาเพิ่ม" value="${t.price || 0}" style="max-width:100px;">
+      <button class="icon-btn" data-del-top="${t.id}">ลบ</button>
+    </div>`).join('');
+  return `
+  <div class="sweetness-card">
+    <div class="cat-head"><span style="font-family:var(--font-display);font-weight:600;font-size:15px;">ท็อปปิ้ง / ตัวเลือกเพิ่มเติม</span></div>
+    <p class="card-note">ตั้งค่าท็อปปิ้งที่ลูกค้าสามารถเลือกเพิ่มได้ (เช่น เพิ่มช็อตกาแฟ +5 บาท) จากนั้นเลือกว่าจะให้ท็อปปิ้งไหนใช้ได้กับเมนูไหนได้ในแต่ละเมนูด้านล่าง</p>
+    ${rows || '<div class="small-lbl">ยังไม่มีท็อปปิ้ง</div>'}
+    <button class="add-item-btn" id="add-topping-btn">+ เพิ่มท็อปปิ้งใหม่</button>
+  </div>`;
+}
+
+function intensityManageHtml(){
+  const rows = (menuData.intensityLevels || []).map((lvl, idx) => `
+    <div class="sweetness-row" data-in-id="${lvl.id}">
+      <span class="small-lbl" style="width:18px;">${idx + 1}.</span>
+      <input type="text" data-in-field="label" value="${lvl.label.replace(/"/g,'&quot;')}">
+      <button class="icon-btn" data-del-in="${lvl.id}">ลบ</button>
+    </div>`).join('');
+  return `
+  <div class="sweetness-card">
+    <div class="cat-head"><span style="font-family:var(--font-display);font-weight:600;font-size:15px;">แถบความเข้มของกาแฟ</span></div>
+    <p class="card-note">กำหนดระดับความเข้ม (เรียงจากอ่อนไปเข้ม) ที่ลูกค้าจะเลื่อนเลือกได้ แล้วเปิดใช้งานกับเมนูกาแฟที่ต้องการได้ในแต่ละเมนูด้านล่าง</p>
+    ${rows}
+    <button class="add-item-btn" id="add-intensity-btn">+ เพิ่มระดับความเข้ม</button>
+  </div>`;
+}
+
 function renderMenuPanel(){
   const el = document.getElementById('menu-panel');
   let html = sweetnessManageHtml();
+  html += intensityManageHtml();
+  html += toppingsManageHtml();
   html += menuData.categories.map(categoryAdminHtml).join('');
   html += `<button class="submit-btn" id="add-category-btn">+ เพิ่มหมวดหมู่ใหม่</button>`;
   el.innerHTML = html;
@@ -2957,6 +3138,23 @@ function categoryAdminHtml(cat){
       </div>
       <div class="row-3">
         <input data-field="description" placeholder="รายละเอียดที่ลูกค้าจะเห็น (ถ้ามี)" value="${(it.description||'').replace(/"/g,'&quot;')}">
+      </div>
+      <div class="item-toppings-block">
+        <label class="topping-opt">
+          <input type="checkbox" data-item-intensity-toggle="${it.id}" ${it.allowIntensity ? 'checked' : ''}>
+          <span>เปิดใช้แถบเลื่อนความเข้มของกาแฟสำหรับเมนูนี้</span>
+        </label>
+      </div>
+      <div class="item-toppings-block">
+        <span class="small-lbl">ท็อปปิ้งที่ใช้ได้กับเมนูนี้</span>
+        ${(menuData.toppings && menuData.toppings.length > 0) ? `
+          <div class="topping-assign-list">
+            ${menuData.toppings.map(t => `
+              <label class="topping-opt">
+                <input type="checkbox" data-item-top-assign="${it.id}" data-top-id="${t.id}" ${(it.toppingIds||[]).includes(t.id) ? 'checked' : ''}>
+                <span>${t.name} (+${fmtBaht(t.price)})</span>
+              </label>`).join('')}
+          </div>` : '<div class="small-lbl">ยังไม่มีท็อปปิ้งในระบบ เพิ่มได้ที่ด้านบนสุด</div>'}
       </div>
       <div class="row-3 recipe-per-level">
         <span class="small-lbl">สูตร/วิธีทำตามระดับความหวาน (สำหรับพนักงานเวลาทำออเดอร์)</span>
@@ -3025,6 +3223,60 @@ function attachMenuPanelHandlers(){
     };
   }
 
+  document.querySelectorAll('.sweetness-row[data-top-id]').forEach(row => {
+    const topId = row.dataset.topId;
+    const top = (menuData.toppings || []).find(t => t.id === topId);
+    if(!top) return;
+    row.querySelector('[data-top-field="name"]').onchange = (e) => {
+      top.name = e.target.value.trim() || top.name;
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+    row.querySelector('[data-top-field="price"]').onchange = (e) => {
+      top.price = Number(e.target.value) || 0;
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+    row.querySelector('[data-del-top]').onclick = () => {
+      menuData.toppings = menuData.toppings.filter(t => t.id !== topId);
+      ensureValidToppings();
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+  });
+  const addTopBtn = document.getElementById('add-topping-btn');
+  if(addTopBtn){
+    addTopBtn.onclick = () => {
+      if(!Array.isArray(menuData.toppings)) menuData.toppings = [];
+      menuData.toppings.push({id:newId('top'), name:'ท็อปปิ้งใหม่', price:0});
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+  }
+
+  document.querySelectorAll('[data-in-id]').forEach(row => {
+    const inId = row.dataset.inId;
+    const lvl = (menuData.intensityLevels || []).find(l => l.id === inId);
+    if(!lvl) return;
+    row.querySelector('[data-in-field="label"]').onchange = (e) => {
+      lvl.label = e.target.value.trim() || lvl.label;
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+    row.querySelector('[data-del-in]').onclick = () => {
+      if(menuData.intensityLevels.length <= 1){
+        alert('ต้องมีระดับความเข้มอย่างน้อย 1 ระดับ');
+        return;
+      }
+      menuData.intensityLevels = menuData.intensityLevels.filter(l => l.id !== inId);
+      ensureValidIntensity();
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+  });
+  const addInBtn = document.getElementById('add-intensity-btn');
+  if(addInBtn){
+    addInBtn.onclick = () => {
+      if(!Array.isArray(menuData.intensityLevels)) menuData.intensityLevels = [];
+      menuData.intensityLevels.push({id:newId('in'), label:'ระดับใหม่'});
+      saveMenu(); renderMenuPanel(); renderOrderView();
+    };
+  }
+
   document.querySelectorAll('.cat-card').forEach(card => {
     const catId = card.dataset.catId;
     const cat = menuData.categories.find(c => c.id === catId);
@@ -3050,7 +3302,7 @@ function attachMenuPanelHandlers(){
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
     card.querySelector('[data-add-item]').onclick = () => {
-      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, points:null, recipe:{}, ingredientRecipe:[]});
+      menuData.items.push({id:newId('item'), categoryId:catId, name:'เมนูใหม่', price:0, cost:0, description:'', quota:null, points:null, recipe:{}, ingredientRecipe:[], toppingIds:[], allowIntensity:false});
       rebuildItemsById(); saveMenu(); renderMenuPanel(); renderOrderView();
     };
 
@@ -3067,6 +3319,24 @@ function attachMenuPanelHandlers(){
           saveMenu(); renderOrderView();
         };
       });
+      row.querySelectorAll('[data-item-top-assign]').forEach(cb => {
+        cb.onchange = () => {
+          if(!Array.isArray(item.toppingIds)) item.toppingIds = [];
+          const topId = cb.dataset.topId;
+          const idx = item.toppingIds.indexOf(topId);
+          if(cb.checked){ if(idx === -1) item.toppingIds.push(topId); }
+          else { if(idx !== -1) item.toppingIds.splice(idx, 1); }
+          saveMenu(); renderOrderView();
+        };
+      });
+      const intensityToggle = row.querySelector('[data-item-intensity-toggle]');
+      if(intensityToggle){
+        intensityToggle.onchange = () => {
+          item.allowIntensity = intensityToggle.checked;
+          rebuildItemsById();
+          saveMenu(); renderOrderView();
+        };
+      }
       row.querySelectorAll('[data-recipe-for]').forEach(ta => {
         ta.onchange = (e) => {
           if(!item.recipe || typeof item.recipe !== 'object') item.recipe = {};
