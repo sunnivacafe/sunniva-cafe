@@ -73,9 +73,13 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .intensity-box{background:var(--surface-2);border-radius:9px;padding:9px 10px 6px;display:flex;flex-direction:column;gap:4px;}
 .intensity-slider{width:100%;accent-color:var(--berry);height:18px;cursor:pointer;}
 .intensity-ticks{display:flex;justify-content:space-between;font-size:10px;color:var(--cream-dim);padding:0 2px;}
-.topping-opt{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--cream);cursor:pointer;}
+.topping-opt{display:flex;align-items:center;justify-content:space-between;gap:7px;font-size:12.5px;color:var(--cream);}
+.topping-opt.assign-opt{cursor:pointer;}
 .topping-opt input,.admin-item-row .topping-opt input{accent-color:var(--gold-dark);width:15px !important;height:15px !important;
   flex:0 0 auto;padding:0 !important;margin:0;border:none !important;background:none !important;border-radius:0 !important;}
+.topping-stepper{flex:0 0 auto;padding:2px;gap:2px;}
+.topping-stepper button{width:24px;height:24px;font-size:14px;}
+.topping-stepper .qty{min-width:18px;font-size:13px;}
 .topping-assign-list{display:flex;flex-direction:column;gap:6px;background:var(--surface-2);border-radius:9px;padding:8px 10px;}
 .item-toppings-block{display:flex;flex-direction:column;gap:6px;}
 
@@ -102,21 +106,37 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 .qr-image-preview img{width:76px;height:76px;object-fit:cover;border-radius:8px;background:#fff;}
 .qr-image-preview .qr-preview-note{font-size:12.5px;color:var(--cream-dim);}
 
-.cart-bar{position:fixed;left:0;right:0;bottom:0;background:var(--gold);color:#2A1608;padding:14px 20px;
+.cart-bar{position:fixed;left:0;right:0;bottom:0;background:var(--gold);color:#2A1608;padding:13px 18px;
   display:flex;align-items:center;justify-content:space-between;font-family:var(--font-display);font-weight:600;
-  cursor:pointer;box-shadow:0 -6px 18px rgba(0,0,0,0.25);}
-.cart-bar span.cnt{font-size:13.5px;opacity:0.85;}
-.cart-bar span.tot{font-size:17px;}
+  cursor:pointer;box-shadow:0 -6px 18px rgba(0,0,0,0.25);transition:background 0.15s;}
+.cart-bar-left{display:flex;align-items:center;gap:9px;min-width:0;}
+.cart-icon{font-size:19px;line-height:1;flex:0 0 auto;}
+.cart-bar span.cnt{font-size:13.5px;opacity:0.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cart-bar-right{display:flex;align-items:center;gap:2px;flex:0 0 auto;}
+.cart-bar span.tot{font-size:16.5px;}
+.cart-arrow{font-size:19px;font-weight:400;opacity:0.75;}
+.cart-bar.empty{background:var(--surface-2);color:var(--cream-dim);box-shadow:0 -6px 18px rgba(0,0,0,0.12);}
+.cart-bar.empty span.tot{font-size:13.5px;font-weight:500;}
 
 .overlay{position:fixed;inset:0;background:rgba(20,10,4,0.72);display:flex;align-items:flex-end;justify-content:center;z-index:20;}
 .overlay.hidden{display:none;}
 .sheet{background:var(--bg);width:100%;max-width:760px;max-height:88vh;overflow-y:auto;border-radius:20px 20px 0 0;
   padding:22px 20px 26px;border-top:1px solid var(--line);}
 .sheet h3{font-family:var(--font-display);font-size:19px;margin:0 0 16px;}
-.cart-line{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:0.5px solid var(--line);gap:10px;}
-.cart-line .cl-name{font-size:14px;flex:1;}
-.cart-line .cl-price{font-size:13.5px;color:var(--cream-dim);}
-.cart-line button.remove{background:none;border:none;color:var(--berry);font-size:13px;cursor:pointer;padding:4px 6px;}
+.cart-card{background:var(--surface);border:0.5px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;}
+.cart-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.cart-card-name{font-size:15px;font-weight:600;color:var(--cream);line-height:1.35;}
+.cart-remove-btn{background:none;border:none;color:var(--cream-dim);font-size:19px;line-height:1;cursor:pointer;padding:2px 4px;flex:0 0 auto;}
+.cart-remove-btn:active{color:var(--berry);}
+.cart-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.cart-badge{font-size:11.5px;background:var(--surface-2);color:var(--cream-dim);padding:3px 9px;border-radius:20px;}
+.cart-card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+.cart-stepper{background:var(--surface-2);padding:2px;gap:2px;}
+.cart-stepper button{width:28px;height:28px;font-size:16px;}
+.cart-stepper .qty{min-width:22px;}
+.cart-card-price{text-align:right;}
+.cart-card-price .cl-unit{display:block;font-size:11px;color:var(--cream-dim);}
+.cart-card-price .cl-total{display:block;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--gold);}
 .empty-cart{color:var(--cream-dim);font-size:14px;padding:20px 0;text-align:center;}
 
 .field{margin-top:14px;}
@@ -368,7 +388,7 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
     <p class="eyebrow">ORDER ONLINE</p>
     <h1>SUNNIVA</h1>
     <p class="brand-sub">C O F F E E</p>
-    <p class="tagline">กดเลือกเมนู ใส่ชื่อ แล้วยืนยันออเดอร์ได้เลย<br>ระบบสรุปยอดอัตโนมัติ แนะนำเช็คตอน 19:00 น.</p>
+    <p class="tagline">กดเลือกเมนู ใส่ชื่อ แล้วยืนยันออเดอร์ได้เลย<br>ระบบสรุปยอดอัตโนมัติ แนะนำเช็คตอน 21:00 น.</p>
   </div>
   <div class="waffle-strip"></div>
 
@@ -394,7 +414,7 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
           <div class="cn-label">เวลาปัจจุบัน (ไทย)</div>
           <div class="cn-time" id="clock-time">--:--</div>
         </div>
-        <div style="font-size:13px;color:var(--cream-dim);text-align:right;" id="clock-msg">รอถึงเวลาสรุปยอด 19:00 น.</div>
+        <div style="font-size:13px;color:var(--cream-dim);text-align:right;" id="clock-msg">รอถึงเวลาสรุปยอด 21:00 น.</div>
       </div>
 
       <div class="date-row">
@@ -587,8 +607,14 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--font-bod
 </div>
 
 <div class="cart-bar" id="cart-bar">
-  <span class="cnt" id="cart-cnt">ตะกร้าว่าง</span>
-  <span class="tot" id="cart-tot">ดูตะกร้า</span>
+  <div class="cart-bar-left">
+    <span class="cart-icon">🛍️</span>
+    <span class="cnt" id="cart-cnt">ตะกร้าว่าง</span>
+  </div>
+  <div class="cart-bar-right">
+    <span class="tot" id="cart-tot">ดูตะกร้า</span>
+    <span class="cart-arrow">›</span>
+  </div>
 </div>
 
 <div class="overlay hidden" id="overlay">
@@ -1169,8 +1195,13 @@ function ensureValidToppings(){
     i.toppingIds = i.toppingIds.filter(id => validTopIds.has(id));
   });
   Object.keys(selectedToppings).forEach(itemId => {
-    if(!Array.isArray(selectedToppings[itemId])) { selectedToppings[itemId] = []; return; }
-    selectedToppings[itemId] = selectedToppings[itemId].filter(id => validTopIds.has(id));
+    if(!selectedToppings[itemId] || typeof selectedToppings[itemId] !== 'object' || Array.isArray(selectedToppings[itemId])){
+      selectedToppings[itemId] = {};
+      return;
+    }
+    Object.keys(selectedToppings[itemId]).forEach(topId => {
+      if(!validTopIds.has(topId)) delete selectedToppings[itemId][topId];
+    });
   });
 }
 
@@ -1194,7 +1225,7 @@ function rebuildItemsById(){
   menuData.items.forEach(i => {
     itemsById[i.id] = i;
     if(!(i.id in selectedSweetness)) selectedSweetness[i.id] = menuData.sweetnessLevels[0].id;
-    if(!(i.id in selectedToppings)) selectedToppings[i.id] = [];
+    if(!(i.id in selectedToppings)) selectedToppings[i.id] = {};
     if(i.allowIntensity && !(i.id in selectedIntensity)){
       const levels = menuData.intensityLevels;
       selectedIntensity[i.id] = levels[Math.floor((levels.length - 1) / 2)].id;
@@ -1369,17 +1400,23 @@ function availableToppingsForItem(item){
   return (item.toppingIds || []).map(toppingById).filter(Boolean);
 }
 function selectedToppingObjsForItem(itemId){
-  const ids = selectedToppings[itemId] || [];
-  return ids.map(toppingById).filter(Boolean);
+  const qtyMap = selectedToppings[itemId] || {};
+  return Object.keys(qtyMap)
+    .map(topId => {
+      const t = toppingById(topId);
+      const qty = qtyMap[topId] || 0;
+      return t && qty > 0 ? {...t, qty} : null;
+    })
+    .filter(Boolean);
 }
 function toppingsPriceSum(toppingObjs){
-  return toppingObjs.reduce((s, t) => s + (Number(t.price) || 0), 0);
+  return toppingObjs.reduce((s, t) => s + (Number(t.price) || 0) * (t.qty || 1), 0);
 }
 function toppingsKeyOf(toppingObjs){
-  return toppingObjs.map(t => t.id).sort().join(',');
+  return toppingObjs.map(t => t.id + 'x' + (t.qty || 1)).sort().join(',');
 }
 function toppingsLabelOf(toppingObjs){
-  return toppingObjs.map(t => t.name).join(', ');
+  return toppingObjs.map(t => (t.qty && t.qty > 1) ? `${t.name} x${t.qty}` : t.name).join(', ');
 }
 
 function renderOrderView(){
@@ -1415,15 +1452,22 @@ function itemCardHtml(item){
     : '';
   const desc = item.description ? `<div class="item-desc">${item.description}</div>` : '';
   const sweetOpts = menuData.sweetnessLevels.map(lvl => `<option value="${lvl.id}" ${lvl.id === sweetId ? 'selected' : ''}>${lvl.label}</option>`).join('');
-  const selToppingIds = new Set(selectedToppings[item.id] || []);
+  const toppingQtyMap = selectedToppings[item.id] || {};
   const toppingsHtml = availToppings.length > 0 ? `
     <div class="topping-box">
       <span class="sweet-lbl">ท็อปปิ้งเพิ่มเติม</span>
-      ${availToppings.map(t => `
-        <label class="topping-opt">
-          <input type="checkbox" data-topping-for="${item.id}" data-topping-id="${t.id}" ${selToppingIds.has(t.id) ? 'checked' : ''}>
-          <span>${t.name} (+${fmtBaht(t.price)})</span>
-        </label>`).join('')}
+      ${availToppings.map(t => {
+        const tQty = toppingQtyMap[t.id] || 0;
+        return `
+        <div class="topping-opt">
+          <span>${t.name} (+${fmtBaht(t.price)}/หน่วย)</span>
+          <div class="stepper topping-stepper">
+            <button data-topping-minus="${item.id}" data-topping-id="${t.id}" ${tQty === 0 ? 'disabled' : ''}>-</button>
+            <span class="qty">${tQty}</span>
+            <button data-topping-plus="${item.id}" data-topping-id="${t.id}">+</button>
+          </div>
+        </div>`;
+      }).join('')}
     </div>` : '';
   const intensityHtml = hasIntensity ? (() => {
     const levels = menuData.intensityLevels;
@@ -1508,15 +1552,23 @@ function attachOrderViewHandlers(){
       renderOrderView();
     };
   });
-  document.querySelectorAll('[data-topping-for]').forEach(cb => {
-    cb.onchange = () => {
-      const itemId = cb.dataset.toppingFor;
-      const topId = cb.dataset.toppingId;
-      if(!Array.isArray(selectedToppings[itemId])) selectedToppings[itemId] = [];
-      const list = selectedToppings[itemId];
-      const idx = list.indexOf(topId);
-      if(cb.checked){ if(idx === -1) list.push(topId); }
-      else { if(idx !== -1) list.splice(idx, 1); }
+  document.querySelectorAll('[data-topping-plus]').forEach(btn => {
+    btn.onclick = () => {
+      const itemId = btn.dataset.toppingPlus;
+      const topId = btn.dataset.toppingId;
+      if(!selectedToppings[itemId] || typeof selectedToppings[itemId] !== 'object') selectedToppings[itemId] = {};
+      selectedToppings[itemId][topId] = (selectedToppings[itemId][topId] || 0) + 1;
+      renderOrderView();
+    };
+  });
+  document.querySelectorAll('[data-topping-minus]').forEach(btn => {
+    btn.onclick = () => {
+      const itemId = btn.dataset.toppingMinus;
+      const topId = btn.dataset.toppingId;
+      if(!selectedToppings[itemId]) return;
+      const cur = selectedToppings[itemId][topId] || 0;
+      if(cur <= 1){ delete selectedToppings[itemId][topId]; }
+      else { selectedToppings[itemId][topId] = cur - 1; }
       renderOrderView();
     };
   });
@@ -1564,7 +1616,7 @@ function changeQty(id, delta){
       cart.push({
         id:item.id, name:item.name, price:unitPrice, cost:item.cost||0, qty:1,
         sweet: level ? level.label : '', sweetId,
-        toppings: selToppings.map(t => ({id:t.id, name:t.name, price:t.price})),
+        toppings: selToppings.map(t => ({id:t.id, name:t.name, price:t.price, qty:t.qty})),
         toppingsKey, toppingsLabel: toppingsLabelOf(selToppings),
         intensityId, intensity: intensityLvl ? intensityLvl.label : ''
       });
@@ -1604,6 +1656,27 @@ function changeComboQty(catId, delta){
   renderCartBar();
 }
 
+function cartLinePlusDisabled(l){
+  if(l.catId){
+    const a = itemsById[l.aId];
+    const b = itemsById[l.bId];
+    return (a && a.quota && quotaRemaining(a) <= 0) || (b && b.quota && quotaRemaining(b) <= 0);
+  }
+  const item = itemsById[l.id];
+  return !!(item && item.quota && quotaRemaining(item) <= 0);
+}
+
+function cartLineChangeQty(idx, delta){
+  const line = cart[idx];
+  if(!line) return;
+  if(delta > 0 && cartLinePlusDisabled(line)) return;
+  line.qty += delta;
+  if(line.qty <= 0) cart.splice(idx, 1);
+  renderCartBar();
+  renderOrderView();
+  renderCartSheetBody();
+}
+
 function cartTotal(){
   return cart.reduce((sum, l) => sum + l.price * l.qty, 0);
 }
@@ -1615,11 +1688,13 @@ function cartCount(){
 }
 
 function renderCartBar(){
+  const bar = document.getElementById('cart-bar');
   const cnt = document.getElementById('cart-cnt');
   const tot = document.getElementById('cart-tot');
   const n = cartCount();
   cnt.textContent = n === 0 ? 'ตะกร้าว่าง' : n + ' รายการ';
   tot.textContent = n === 0 ? 'ดูตะกร้า' : fmtBaht(cartTotal());
+  bar.classList.toggle('empty', n === 0);
 }
 
 document.getElementById('cart-bar').onclick = openCartSheet;
@@ -1726,14 +1801,35 @@ function renderCartSheetBody(){
     body.innerHTML = `<h3>ตะกร้าของคุณ</h3><div class="empty-cart">ยังไม่ได้เลือกเมนู กดเลือกเมนูก่อนนะ</div>`;
     return;
   }
-  const lines = cart.map((l, idx) => `
-    <div class="cart-line">
-      <div class="cl-name">${l.name}${l.sweet ? ' <span style="color:var(--cream-dim);">(' + l.sweet + ')</span>' : ''}${l.intensity ? ' <span style="color:var(--cream-dim);">[' + l.intensity + ']</span>' : ''}${l.toppingsLabel ? ' <span style="color:var(--gold-dark);">+ ' + l.toppingsLabel + '</span>' : ''} <span class="cl-price">x${l.qty}</span></div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span class="cl-price">${fmtBaht(l.price * l.qty)}</span>
-        <button class="remove" data-remove-idx="${idx}">ลบ</button>
+  const lines = cart.map((l, idx) => {
+    const badges = [];
+    if(l.sweet) badges.push(l.sweet);
+    if(l.intensity) badges.push(l.intensity);
+    if(l.toppingsLabel) l.toppingsLabel.split(', ').forEach(t => badges.push('+ ' + t));
+    const badgesHtml = badges.length > 0
+      ? `<div class="cart-badges">${badges.map(b => `<span class="cart-badge">${b}</span>`).join('')}</div>`
+      : '';
+    const plusDisabled = cartLinePlusDisabled(l);
+    return `
+    <div class="cart-card">
+      <div class="cart-card-top">
+        <div class="cart-card-name">${l.name}</div>
+        <button class="cart-remove-btn" data-remove-idx="${idx}" aria-label="ลบ">&times;</button>
       </div>
-    </div>`).join('');
+      ${badgesHtml}
+      <div class="cart-card-bottom">
+        <div class="stepper cart-stepper">
+          <button data-cart-minus="${idx}">-</button>
+          <span class="qty">${l.qty}</span>
+          <button data-cart-plus="${idx}" ${plusDisabled ? 'disabled' : ''}>+</button>
+        </div>
+        <div class="cart-card-price">
+          <span class="cl-unit">${fmtBaht(l.price)}/หน่วย</span>
+          <span class="cl-total">${fmtBaht(l.price * l.qty)}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 
   const subtotal = cartTotal();
   const reward = (memberRecord && !recurringMode) ? (rewardsData.rewards||[]).find(r => r.id === selectedRewardId) : null;
@@ -1779,6 +1875,12 @@ function renderCartSheetBody(){
       renderOrderView();
       renderCartSheetBody();
     };
+  });
+  document.querySelectorAll('[data-cart-plus]').forEach(btn => {
+    btn.onclick = () => cartLineChangeQty(Number(btn.dataset.cartPlus), 1);
+  });
+  document.querySelectorAll('[data-cart-minus]').forEach(btn => {
+    btn.onclick = () => cartLineChangeQty(Number(btn.dataset.cartMinus), -1);
   });
   const rewardSel = document.getElementById('reward-select');
   if(rewardSel){
@@ -3140,7 +3242,7 @@ function categoryAdminHtml(cat){
         <input data-field="description" placeholder="รายละเอียดที่ลูกค้าจะเห็น (ถ้ามี)" value="${(it.description||'').replace(/"/g,'&quot;')}">
       </div>
       <div class="item-toppings-block">
-        <label class="topping-opt">
+        <label class="topping-opt assign-opt">
           <input type="checkbox" data-item-intensity-toggle="${it.id}" ${it.allowIntensity ? 'checked' : ''}>
           <span>เปิดใช้แถบเลื่อนความเข้มของกาแฟสำหรับเมนูนี้</span>
         </label>
@@ -3150,7 +3252,7 @@ function categoryAdminHtml(cat){
         ${(menuData.toppings && menuData.toppings.length > 0) ? `
           <div class="topping-assign-list">
             ${menuData.toppings.map(t => `
-              <label class="topping-opt">
+              <label class="topping-opt assign-opt">
                 <input type="checkbox" data-item-top-assign="${it.id}" data-top-id="${t.id}" ${(it.toppingIds||[]).includes(t.id) ? 'checked' : ''}>
                 <span>${t.name} (+${fmtBaht(t.price)})</span>
               </label>`).join('')}
@@ -3392,12 +3494,12 @@ function updateClock(){
   document.getElementById('clock-time').textContent = t;
   const note = document.getElementById('clock-note');
   const msg = document.getElementById('clock-msg');
-  if(bkkHour() >= 19){
+  if(bkkHour() >= 21){
     note.classList.add('due');
     msg.textContent = 'ถึงเวลาสรุปยอดปิดร้านแล้ว';
   } else {
     note.classList.remove('due');
-    msg.textContent = 'รอถึงเวลาสรุปยอด 19:00 น.';
+    msg.textContent = 'รอถึงเวลาสรุปยอด 21:00 น.';
   }
 }
 
